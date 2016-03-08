@@ -5,7 +5,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/chord_names', {
             templateUrl: '/views/templates/chord_names.html',
-            controller: 'chord_namesController'
+            controller: 'Chord_namesController'
         })
 
         .when('/recommendations', {
