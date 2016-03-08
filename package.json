@@ -1,0 +1,20 @@
+{
+  "name": "bridge_app",
+  "version": "1.0.0",
+  "description": "A guitar capo utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Andy Fehrenbach",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0",
+    "angular-ui-bootstrap": "^1.2.4",
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "path": "^0.12.7"
+  }
+}
