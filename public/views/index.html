@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Bridge</title>
+  <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+  <!-- <link href="//fonts.googleapis.com/css?family=Droid+Serif:700,700italic" rel="stylesheet" type="text/css"> -->
+  <script type="text/javascript" src="/vendors/angular.min.js"></script>
+  <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+  <script type="text/javascript" src="/vendors/ui-bootstrap.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/data_factory.js"></script>
+  <script type="text/javascript" src="/scripts/controllers/task_controller.js"></script>
+
+  <link rel="stylesheet" href="/styles/reset.css" />
+  <link rel="stylesheet" href="/styles/normalize.css" />
+  <link rel="stylesheet" href="/styles/custom.css" />
+</head>
+
+<body ng-app="myApp">
+
+  <header>
+    <h2 class="logo">Bridge</h2>
+    <nav>
+      <ul>
+        <li><a href="#chord_names">Chord Names</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main ng-view="main">
+
+  </main>
+</body>
+
+</html>
