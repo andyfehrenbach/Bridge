@@ -1,0 +1,21 @@
+<div class="row selectors">
+  <div class="selector">
+    <h3>Select Open Key</h3>
+  </div>
+
+  <div class="selector">
+    <h3>Capo Position</h3>
+  </div>
+</div>
+<h1>Open Chords</h1>
+
+<div class="row chords" >
+  <div class="chord-card clearfix" ng-repeat="chord in chords">
+    <h4> Numeral</h4>
+    <img class="chord" />
+    <div class="row chord-names">
+      <h4 class="normal"> {{chord.name}} </h4>
+      <h4 class="transposed"> D </h4>
+    </div>
+  </div>
+</div>
