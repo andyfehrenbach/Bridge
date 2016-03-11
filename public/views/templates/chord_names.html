@@ -1,10 +1,32 @@
 <div class="row selectors">
-  <div class="selector">
-    <h3>Select Open Key</h3>
-  </div>
 
   <div class="selector">
-    <h3>Capo Position</h3>
+      <h3>Select Open Key</h3>
+      <uib-carousel active="active" no-wrap="noWrapSlides">
+        <uib-slide ng-repeat="slide in openKeys track by slide.id" index="slide.id">
+          <h1 class="key-name"> {{slide.key}} </h1>
+
+
+          <div class="carousel-caption">
+            <!-- <h4>Slide {{slide.id}}</h4> -->
+            <!-- <p>{{slide.text}}</p> -->
+          </div>
+        </uib-slide>
+      </uib-carousel>
+    </div>
+
+<!--  -->
+<div class="selector">
+  <h3>Capo Position</h3>
+    <uib-carousel active="active2" no-wrap="noWrapSlides">
+      <uib-slide ng-repeat="slide in capoPositions track by slide.id" index="slide.id">
+        <h1 class="key-name"> {{slide.fret}}</h1>
+        <div class="carousel-caption">
+          <!-- <h4>Slide {{slide.id}}</h4> -->
+          <!-- <p>{{slide.text}}</p> -->
+        </div>
+      </uib-slide>
+    </uib-carousel>
   </div>
 </div>
 <h1>Open Chords</h1>
@@ -15,7 +37,7 @@
     <img class="chord" />
     <div class="row chord-names">
       <h4 class="normal"> {{chord.name}} </h4>
-      <h4 class="transposed"> D </h4>
+      <h4 class="transposed"> {{chord.transposedChord}} </h4>
     </div>
   </div>
 </div>

@@ -1,5 +1,9 @@
 @import "variables";
 
+//thing necessary for bootstrap UI
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+//
+
 body {
   background: #ddd;
   font-size: 1.5 rem;
@@ -11,18 +15,23 @@ body {
   overflow: contain;
 }
 
+.key-name {
+  font-size: 14rem;
+}
+
 .row {
   display: flex;
 }
   .selector {
     flex: 1;
-    background-color: grey;
-    height: 8rem;
+    // background-color: grey;
+    height: 100%;
     margin: 3rem;
   }
 //
 .chords {
   background-color: $white;
+  margin: 4rem 0 0 0;
 }
   .chord-card {
     flex: 1;
@@ -40,5 +49,5 @@ body {
     }
 
     h4{
-      margin: 2em 1em;
+      margin: .5em 1em;
     }
