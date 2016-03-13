@@ -6,6 +6,7 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
   $scope.dataFactory = DataFactory;
   $scope.allTheChords = [];
   var udi;
+  $scope.newKey;
 
   //start the svg generator
 
@@ -14,6 +15,22 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
   var placeholder = document.getElementById("exampleChart");
 
 
+  //sample key array TODO replace with real key array from database
+    $scope.chords = [{
+      name: 'C'
+    }, {
+      name: 'Dm'
+    }, {
+      name: 'Em'
+    }, {
+      name: 'F'
+    }, {
+      name: 'G'
+    }, {
+      name: 'Am'
+    }, {
+      name: 'B7'
+    }];
 
   //// handles the get route
 
@@ -22,8 +39,8 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
           $scope.dataFactory.dataFactoryRetrieveChords().then(function() {
               $scope.allTheChords = $scope.dataFactory.allTheChords();
               console.log($scope.allTheChords);
-              udi = $scope.allTheChords[0].chord_info;
-              createChart(placeholder,udi);
+              udi = $scope.allTheChords[10].chord_info;
+                  createChart(placeholder,udi);
           });
       } else {
           $scope.allTheChords = $scope.dataFactory.allTheChords();
@@ -33,22 +50,14 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
       }
 
 
-//sample key array TODO replace with real key array from database
-  $scope.chords = [{
-    name: 'C'
-  }, {
-    name: 'D'
-  }, {
-    name: 'Em'
-  }, {
-    name: 'F'
-  }, {
-    name: 'G'
-  }, {
-    name: 'Am'
-  }, {
-    name: 'B7'
-  }];
+// for (var i = 0; i < $scope.chords.length; i++) {
+//   if ($scope.chords[i].name == $scope.allTheChords[i].chord_name) {
+//     $scope.chords[i].svg = createChart(placeholder,udi);
+//   } else {
+//     $scope.chords[i].svg = null;
+//   }
+// }
+
 
   ///start the chord logic
   console.log('transposer');
@@ -58,7 +67,7 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
 
   $scope.keyOfC = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 
-  $scope.capoPosition = 2;
+  $scope.capoPosition = 1;
 
   function transpose(keyArray, capoPosition, initialChordsObject) {
     var transposedArray = [];

@@ -18,9 +18,9 @@
 <!--  -->
 <div class="selector">
   <h3>Capo Position</h3>
-    <uib-carousel active="activeCapo" no-wrap="noWrapSlides">
+    <uib-carousel active="activeCapo" no-wrap="noWrapSlides" ng-click="runConversion()">
       <uib-slide ng-repeat="slide in capoPositions track by slide.id" index="slide.id">
-        <h1 class="key-name"> {{slide.fret}}</h1>
+        <h1 class="key-name" ng-model="capoPosition"> {{slide.fret}}</h1>
         <div class="carousel-caption">
           <!-- <h4>Slide {{slide.id}}</h4> -->
           <!-- <p>{{slide.text}}</p> -->
@@ -34,7 +34,7 @@
 <div class="row chords" >
   <div class="chord-card clearfix" ng-repeat="chord in chords">
     <h4> Numeral</h4>
-    <img class="chord" />
+      <img class="chord" alt="" />
     <div class="row chord-names">
       <h4 class="normal"> {{chord.name}} </h4>
       <h4 class="transposed"> {{chord.transposedChord}} </h4>
@@ -43,5 +43,5 @@
 </div>
 
 <div class="test">
-  <svg id="exampleChart"></svg>
+<svg class="chord" id="exampleChart"></svg>
 </div>
