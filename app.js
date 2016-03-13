@@ -2,11 +2,15 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var all_chords = require('./routes/all_chords');
+var minor_chords = require('./routes/minor_chords');
+var seventh_chords = require('./routes/seventh_chords');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/all_chords', all_chords);
+app.use('/minor_chords', minor_chords);
+app.use('/seventh_chords', seventh_chords);
 
 
 
