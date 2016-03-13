@@ -51,3 +51,13 @@ body {
     h4{
       margin: .5em 1em;
     }
+
+    .test {
+      width:400px;
+      height: 400px;
+      background: #ddd;
+    }
+
+
+    svg.chordChart .grid{ stroke: black;}
+    svg.chordChart .labels{ fill: white;}

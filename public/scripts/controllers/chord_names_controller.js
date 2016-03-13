@@ -98,8 +98,12 @@ myApp.controller('Chord_namesController', ['$scope', '$http', function($scope, $
     fret: '3'
   }];
 
+//start the svg generator
 
-
+var udi = {title:"C7♭9",fret:"x,3,2,3,2,3",label:"x,2,1,3,1,4",footer:" ,C,E,B♭,D♭,G"};
+var createChart = chartMaker();
+var placeholder = document.getElementById("exampleChart");
+createChart(placeholder,udi);
 
 
 
