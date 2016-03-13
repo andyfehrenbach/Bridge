@@ -5,6 +5,15 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
 
   $scope.dataFactory = DataFactory;
   $scope.allTheChords = [];
+  var udi;
+
+  //start the svg generator
+
+  // var udi = {title:"C7♭9",fret:"x,3,2,3,2,3",label:""};
+  var createChart = chartMaker();
+  var placeholder = document.getElementById("exampleChart");
+
+
 
   //// handles the get route
 
@@ -12,12 +21,16 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
           // initial load
           $scope.dataFactory.dataFactoryRetrieveChords().then(function() {
               $scope.allTheChords = $scope.dataFactory.allTheChords();
+              console.log($scope.allTheChords);
+              udi = $scope.allTheChords[0].chord_info;
+              createChart(placeholder,udi);
           });
       } else {
           $scope.allTheChords = $scope.dataFactory.allTheChords();
+          console.log($scope.allTheChords);
+          udi = $scope.allTheChords[0].chord_info;
+          createChart(placeholder,udi);
       }
-
-      console.log($scope.allTheChords);
 
 
 //sample key array TODO replace with real key array from database
@@ -54,11 +67,11 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
       var newIndex = (findIndex(keyArray[i]) + capoPosition) % $scope.allTheChords.length;
       // console.log(newIndex);
       var newChord = $scope.allTheChords[newIndex];
-      console.log(newChord);
+      // console.log(newChord);
       transposedArray.push(newChord);
       //trying to get the new chords into the chords array
       initialChordsObject[i].transposedChord = transposedArray[i];
-      console.log($scope.chords);
+      // console.log($scope.chords);
     }
     return transposedArray;
   }
@@ -115,12 +128,6 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
     {id: 7, fret: '8'}
   ];
 
-//start the svg generator
-
-var udi = {title:"C7♭9",fret:"x,3,2,3,2,3",label:""};
-var createChart = chartMaker();
-var placeholder = document.getElementById("exampleChart");
-createChart(placeholder,udi);
 
 
 
