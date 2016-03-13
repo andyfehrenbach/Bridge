@@ -31,65 +31,6 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
 
 
 
-  //// handles the get route for major chords
-
-  if ($scope.dataFactory.majorChords() === undefined) {
-          // initial load
-          $scope.dataFactory.retrieveMajorChords().then(function() {
-              $scope.majorChords = $scope.dataFactory.majorChords();
-              console.log($scope.majorChords);
-              udi = $scope.majorChords[10].chord_info;
-                  createChart(placeholder,udi);
-          });
-      } else {
-          $scope.majorChords = $scope.dataFactory.majorChords();
-          console.log($scope.majorChords);
-          udi = $scope.majorChords[0].chord_info;
-          createChart(placeholder,udi);
-      }
-
-  //// handles the get route for minor chords
-  if ($scope.dataFactory.minorChords() === undefined) {
-          // initial load
-          $scope.dataFactory.retrieveMinorChords().then(function() {
-              $scope.minorChords = $scope.dataFactory.minorChords();
-              console.log($scope.minorChords);
-              // udi = $scope.minorChords[10].chord_info;
-              //     createChart(placeholder,udi);
-          });
-      } else {
-          $scope.minorChords = $scope.dataFactory.minorChords();
-          console.log($scope.minorChords);
-          // udi = $scope.minorChords[0].chord_info;
-          // createChart(placeholder,udi);
-      }
-
-      //// handles the get route for minor chords
-  if ($scope.dataFactory.seventhChords() === undefined) {
-          // initial load
-          $scope.dataFactory.retrieveSeventhChords().then(function() {
-              $scope.seventhChords = $scope.dataFactory.seventhChords();
-              console.log($scope.seventhChords);
-              // udi = $scope.seventhChords[10].chord_info;
-              //     createChart(placeholder,udi);
-          });
-      } else {
-          $scope.seventhChords = $scope.dataFactory.seventhChords();
-          console.log($scope.seventhChords);
-          // udi = $scope.seventhChords[0].chord_info;
-          // createChart(placeholder,udi);
-      }
-
-
-
-// for (var i = 0; i < $scope.chords.length; i++) {
-//   if ($scope.chords[i].name == $scope.majorChords[i].chord_name) {
-//     $scope.chords[i].svg = createChart(placeholder,udi);
-//   } else {
-//     $scope.chords[i].svg = null;
-//   }
-// }
-
 
   ///start the chord logic
   console.log('transposer');

@@ -6,6 +6,7 @@ myApp.config(['$routeProvider', function($routeProvider) {
         .when('/chord_names', {
             templateUrl: '/views/templates/chord_names.html',
             controller: 'Chord_namesController'
+
         })
 
         .when('/recommendations', {
