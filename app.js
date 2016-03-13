@@ -1,11 +1,12 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var all_chords = require('./routes/all_chords');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-
+app.use('/all_chords', all_chords);
 
 
 

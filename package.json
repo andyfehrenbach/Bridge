@@ -17,6 +17,7 @@
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
     "express": "^4.13.4",
+    "mongoose": "^4.4.7",
     "normalize-css": "^2.3.1",
     "path": "^0.12.7",
     "reset.css": "^2.0.2"

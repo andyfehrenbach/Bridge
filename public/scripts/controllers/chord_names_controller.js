@@ -1,8 +1,26 @@
 
 
-myApp.controller('Chord_namesController', ['$scope', '$http', function($scope, $http) {
+myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
   console.log('the Chord Names controller is working');
 
+  $scope.dataFactory = DataFactory;
+  $scope.allTheChords = [];
+
+  //// handles the get route
+
+  if ($scope.dataFactory.allTheChords() === undefined) {
+          // initial load
+          $scope.dataFactory.dataFactoryRetrieveChords().then(function() {
+              $scope.allTheChords = $scope.dataFactory.allTheChords();
+          });
+      } else {
+          $scope.allTheChords = $scope.dataFactory.allTheChords();
+      }
+
+      console.log($scope.allTheChords);
+
+
+//sample key array TODO replace with real key array from database
   $scope.chords = [{
     name: 'C'
   }, {
@@ -54,17 +72,16 @@ myApp.controller('Chord_namesController', ['$scope', '$http', function($scope, $
     }
   }
 
-  function addMinor(key) {
+  function addSuffix(key) {
     key[1] += 'm';
     key[2] += 'm';
     key[5] += 'm';
     key[6] += '7';
-
     return key;
   }
 
-
-  $scope.newKey = addMinor(transpose($scope.keyOfC, $scope.capoPosition, $scope.chords));
+///convert key calls
+  $scope.newKey = addSuffix(transpose($scope.keyOfC, $scope.capoPosition, $scope.chords));
   console.log($scope.newKey);
 
 
@@ -74,7 +91,7 @@ myApp.controller('Chord_namesController', ['$scope', '$http', function($scope, $
   $scope.noWrapSlides = false;
   $scope.active = 0;
 
-  var currIndex = 0;
+  // var currIndex = 0;
   $scope.openKeys = [{
     id: 0,
     key: 'A'
@@ -86,21 +103,21 @@ myApp.controller('Chord_namesController', ['$scope', '$http', function($scope, $
     key: 'C'
   }];
 
-  $scope.active2 = 0;
-  $scope.capoPositions = [{
-    id: 0,
-    fret: '1'
-  }, {
-    id: 1,
-    fret: '2'
-  }, {
-    id: 2,
-    fret: '3'
-  }];
+  $scope.activeCapo = 0;
+  $scope.capoPositions = [
+    {id: 0, fret: '1' },
+    {id: 1, fret: '2' },
+    {id: 2, fret: '3'},
+    {id: 3, fret: '4'},
+    {id: 4, fret: '5'},
+    {id: 5, fret: '6'},
+    {id: 6, fret: '7'},
+    {id: 7, fret: '8'}
+  ];
 
 //start the svg generator
 
-var udi = {title:"C7♭9",fret:"x,3,2,3,2,3",label:"x,2,1,3,1,4",footer:" ,C,E,B♭,D♭,G"};
+var udi = {title:"C7♭9",fret:"x,3,2,3,2,3",label:""};
 var createChart = chartMaker();
 var placeholder = document.getElementById("exampleChart");
 createChart(placeholder,udi);
