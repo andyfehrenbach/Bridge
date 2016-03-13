@@ -3,37 +3,33 @@
 myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
   console.log('the Chord Names controller is working');
 
+///Just Scoped Variables
   $scope.dataFactory = DataFactory;
 
   $scope.majorChords = [];
   $scope.minorChords = [];
   $scope.seventhChords = [];
-  var udi;
-  $scope.newKey;
+  $scope.newKey = [];
+
+  //sample key array
+    $scope.chords = [
+      { name: 'C' },
+      { name: 'Dm' },
+      { name: 'Em' },
+      { name: 'F' },
+      { name: 'G' },
+      { name: 'Am' },
+      { name: 'B7' }
+    ];
 
   //start the svg generator
 
   // var udi = {title:"C7♭9",fret:"x,3,2,3,2,3",label:""};
   var createChart = chartMaker();
   var placeholder = document.getElementById("exampleChart");
+  var udi;
 
 
-  //sample key array TODO replace with real key array from database
-    $scope.chords = [{
-      name: 'C'
-    }, {
-      name: 'Dm'
-    }, {
-      name: 'Em'
-    }, {
-      name: 'F'
-    }, {
-      name: 'G'
-    }, {
-      name: 'Am'
-    }, {
-      name: 'B7'
-    }];
 
   //// handles the get route for major chords
 
@@ -144,22 +140,16 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
 
 
 
-
+///start the carousel controls
 
   $scope.noWrapSlides = false;
   $scope.active = 0;
-
   // var currIndex = 0;
-  $scope.openKeys = [{
-    id: 0,
-    key: 'A'
-  }, {
-    id: 1,
-    key: 'B'
-  }, {
-    id: 2,
-    key: 'C'
-  }];
+  $scope.openKeys = [
+    { id: 0, key: 'A' },
+    { id: 1, key: 'B' },
+    { id: 2, key: 'C' }
+  ];
 
   $scope.activeCapo = 0;
   $scope.capoPositions = [
@@ -172,11 +162,5 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
     {id: 6, fret: '7'},
     {id: 7, fret: '8'}
   ];
-
-
-
-
-
-
 
 }]);
