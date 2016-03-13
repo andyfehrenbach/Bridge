@@ -4,6 +4,10 @@ var bodyParser = require('body-parser');
 var all_chords = require('./routes/all_chords');
 var minor_chords = require('./routes/minor_chords');
 var seventh_chords = require('./routes/seventh_chords');
+var mongoose = require('mongoose');
+
+//mongoose connect
+mongoose.connect('mongodb://localhost/bridge_app');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));

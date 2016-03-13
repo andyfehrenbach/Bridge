@@ -1,13 +1,33 @@
 myApp.factory('DataFactory', ['$http', function($http) {
     // PRIVATE
-    var allTheChords;
+    var majorChords;
+    var minorChords;
+    var seventhChords;
 
 
-    var getChords = function() {
+    var getMajorChords = function() {
         console.log('getting chords from server');
         var promise = $http.get('/all_chords').then(function(response) {
-            allTheChords = response.data;
-            console.log('Async data response:', allTheChords);
+            majorChords = response.data;
+            console.log('response:major', majorChords);
+        });
+        return promise;
+    };
+
+    var getMinorChords = function() {
+        console.log('getting minor chords from server');
+        var promise = $http.get('/minor_chords').then(function(response) {
+            minorChords = response.data;
+            console.log('response: minor', minorChords);
+        });
+        return promise;
+    };
+
+    var getSeventhChords = function() {
+        console.log('getting seventh chords from server');
+        var promise = $http.get('/seventh_chords').then(function(response) {
+            seventhChords = response.data;
+            console.log('response: minor', seventhChords);
         });
         return promise;
     };
@@ -16,14 +36,30 @@ myApp.factory('DataFactory', ['$http', function($http) {
 
 
 
+
     //PUBLIC
+    
     var publicApi = {
 
-        dataFactoryRetrieveChords: function() {
-            return getChords();
+        retrieveMajorChords: function() {
+            return getMajorChords();
         },
-        allTheChords: function () {
-            return allTheChords;
+        majorChords: function () {
+            return majorChords;
+        },
+
+        retrieveMinorChords: function() {
+            return getMinorChords();
+        },
+        minorChords: function () {
+            return minorChords;
+        },
+
+        retrieveSeventhChords: function() {
+            return getSeventhChords();
+        },
+        seventhChords: function () {
+            return seventhChords;
         }
 
     };

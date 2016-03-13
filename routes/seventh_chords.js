@@ -4,8 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 
-//mongoose connect
-mongoose.connect('mongodb://localhost/bridge_app');
+
 
 mongoose.model(
     'SeventhChords',

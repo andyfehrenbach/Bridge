@@ -4,7 +4,10 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
   console.log('the Chord Names controller is working');
 
   $scope.dataFactory = DataFactory;
-  $scope.allTheChords = [];
+
+  $scope.majorChords = [];
+  $scope.minorChords = [];
+  $scope.seventhChords = [];
   var udi;
   $scope.newKey;
 
@@ -32,26 +35,59 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
       name: 'B7'
     }];
 
-  //// handles the get route
+  //// handles the get route for major chords
 
-  if ($scope.dataFactory.allTheChords() === undefined) {
+  if ($scope.dataFactory.majorChords() === undefined) {
           // initial load
-          $scope.dataFactory.dataFactoryRetrieveChords().then(function() {
-              $scope.allTheChords = $scope.dataFactory.allTheChords();
-              console.log($scope.allTheChords);
-              udi = $scope.allTheChords[10].chord_info;
+          $scope.dataFactory.retrieveMajorChords().then(function() {
+              $scope.majorChords = $scope.dataFactory.majorChords();
+              console.log($scope.majorChords);
+              udi = $scope.majorChords[10].chord_info;
                   createChart(placeholder,udi);
           });
       } else {
-          $scope.allTheChords = $scope.dataFactory.allTheChords();
-          console.log($scope.allTheChords);
-          udi = $scope.allTheChords[0].chord_info;
+          $scope.majorChords = $scope.dataFactory.majorChords();
+          console.log($scope.majorChords);
+          udi = $scope.majorChords[0].chord_info;
           createChart(placeholder,udi);
       }
 
+  //// handles the get route for minor chords
+  if ($scope.dataFactory.minorChords() === undefined) {
+          // initial load
+          $scope.dataFactory.retrieveMinorChords().then(function() {
+              $scope.minorChords = $scope.dataFactory.minorChords();
+              console.log($scope.minorChords);
+              // udi = $scope.minorChords[10].chord_info;
+              //     createChart(placeholder,udi);
+          });
+      } else {
+          $scope.minorChords = $scope.dataFactory.minorChords();
+          console.log($scope.minorChords);
+          // udi = $scope.minorChords[0].chord_info;
+          // createChart(placeholder,udi);
+      }
+
+      //// handles the get route for minor chords
+  if ($scope.dataFactory.seventhChords() === undefined) {
+          // initial load
+          $scope.dataFactory.retrieveSeventhChords().then(function() {
+              $scope.seventhChords = $scope.dataFactory.seventhChords();
+              console.log($scope.seventhChords);
+              // udi = $scope.seventhChords[10].chord_info;
+              //     createChart(placeholder,udi);
+          });
+      } else {
+          $scope.seventhChords = $scope.dataFactory.seventhChords();
+          console.log($scope.seventhChords);
+          // udi = $scope.seventhChords[0].chord_info;
+          // createChart(placeholder,udi);
+      }
+
+
 
 // for (var i = 0; i < $scope.chords.length; i++) {
-//   if ($scope.chords[i].name == $scope.allTheChords[i].chord_name) {
+//   if ($scope.chords[i].name == $scope.majorChords[i].chord_name) {
 //     $scope.chords[i].svg = createChart(placeholder,udi);
 //   } else {
 //     $scope.chords[i].svg = null;
@@ -62,7 +98,7 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
   ///start the chord logic
   console.log('transposer');
 
-  $scope.allTheChords = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
+  $scope.majorChords = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
 
 
   $scope.keyOfC = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
@@ -73,9 +109,9 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
     var transposedArray = [];
 
     for (var i = 0; i < keyArray.length; i++) {
-      var newIndex = (findIndex(keyArray[i]) + capoPosition) % $scope.allTheChords.length;
+      var newIndex = (findIndex(keyArray[i]) + capoPosition) % $scope.majorChords.length;
       // console.log(newIndex);
-      var newChord = $scope.allTheChords[newIndex];
+      var newChord = $scope.majorChords[newIndex];
       // console.log(newChord);
       transposedArray.push(newChord);
       //trying to get the new chords into the chords array
@@ -87,8 +123,8 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
 
 
   function findIndex(note) {
-    for (var i = 0; i < $scope.allTheChords.length; i++) {
-      if ($scope.allTheChords[i] == note) {
+    for (var i = 0; i < $scope.majorChords.length; i++) {
+      if ($scope.majorChords[i] == note) {
         return i;
       }
     }
