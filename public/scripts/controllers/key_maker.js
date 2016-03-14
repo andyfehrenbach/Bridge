@@ -6,10 +6,10 @@ $scope.minorChords = {};
 $scope.seventhChords = {};
 $scope.keyOfC = [];
 $scope.keyOfC = [];
-$scope.keyOfA = {};
-$scope.keyOfG = {};
-$scope.keyOfE = {};
-$scope.keyOfD = {};
+$scope.keyOfA = [];
+$scope.keyOfG = [];
+$scope.keyOfE = [];
+$scope.keyOfD = [];
 
 
 
@@ -21,14 +21,14 @@ $scope.keyOfD = {};
           // initial load
           $scope.dataFactory.retrieveMajorChords().then(function() {
               $scope.majorChords = $scope.dataFactory.majorChords();
-              console.log($scope.majorChords);
+              // console.log($scope.majorChords);
               udi = $scope.majorChords[10].chord_info;
                   // createChart(placeholder,udi);
 
           });
       } else {
           $scope.majorChords = $scope.dataFactory.majorChords();
-          console.log($scope.majorChords);
+          // console.log($scope.majorChords);
           udi = $scope.majorChords[0].chord_info;
           // createChart(placeholder,udi);
 
@@ -39,13 +39,13 @@ $scope.keyOfD = {};
           // initial load
           $scope.dataFactory.retrieveMinorChords().then(function() {
               $scope.minorChords = $scope.dataFactory.minorChords();
-              console.log($scope.minorChords);
+              // console.log($scope.minorChords);
               // udi = $scope.minorChords[10].chord_info;
               //     createChart(placeholder,udi);
           });
       } else {
           $scope.minorChords = $scope.dataFactory.minorChords();
-          console.log($scope.minorChords);
+          // console.log($scope.minorChords);
           // udi = $scope.minorChords[0].chord_info;
           // createChart(placeholder,udi);
       }
@@ -55,7 +55,7 @@ $scope.keyOfD = {};
           // initial load
           $scope.dataFactory.retrieveSeventhChords().then(function() {
               $scope.seventhChords = $scope.dataFactory.seventhChords();
-              console.log($scope.seventhChords);
+              // console.log($scope.seventhChords);
               // udi = $scope.seventhChords[10].chord_info;
               //     createChart(placeholder,udi);
               writeC();
@@ -68,7 +68,7 @@ $scope.keyOfD = {};
           });
       } else {
           $scope.seventhChords = $scope.dataFactory.seventhChords();
-          console.log($scope.seventhChords);
+          // console.log($scope.seventhChords);
           // udi = $scope.seventhChords[0].chord_info;
           // createChart(placeholder,udi);
           writeC();
@@ -76,27 +76,43 @@ $scope.keyOfD = {};
           console.log($scope.keyOfC);
           console.log($scope.keyOfA);
 
+          console.log($scope.keyOfC);
+
       }
 ///// END OF DATA FACTORY RETRIEVAL
 //add musical nummeral to each chord in key array.
 function addNumeral (key) {
   for (var i = 0; i < key.length; i++) {
-    key[i].numeral = i+1;
+    key[i].numeral = i + 1;
   }
 }
+
+function stripKeyInfo(key) {
+  for (var i = 0; i < key.length; i++) {
+    if (key[i].chord_name.indexOf('m') !== -1) {
+      console.log('applied at key:', key[i].chord_name);
+      key[i].chord_name = key[i].chord_name.substring(0, key[i].chord_name.length - 1);
+    } else if (key[i].chord_name.indexOf('7') !== -1) {
+        console.log('applied at key:', key[i].chord_name);
+      key[i].chord_name = key[i].chord_name.substring(0,key[i].chord_name.length - 1);
+    }
+  }
+}
+
 // begin writing keys
 // Write C
 function writeC() {
     $scope.keyOfC = [
-       $scope.majorChords[11],
-       $scope.minorChords[5],
+       $scope.majorChords[3],
+       $scope.minorChords[6],
        $scope.minorChords[7],
-       $scope.majorChords[7],
-       $scope.majorChords[9],
-       $scope.minorChords[0],
+       $scope.majorChords[8],
+       $scope.majorChords[10],
+       $scope.minorChords[1],
        $scope.seventhChords[2]
   ];
     addNumeral($scope.keyOfC);
+    stripKeyInfo($scope.keyOfC);
 }
 
 // Write A
