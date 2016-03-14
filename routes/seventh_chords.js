@@ -29,7 +29,7 @@ router.get('/', function(req, res) {
             console.log('ERR: ', err);
         }
         res.send(data);
-    }).sort({chord_name: 1 });
+    });
 });
 
 

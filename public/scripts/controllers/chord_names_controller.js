@@ -10,6 +10,7 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
   $scope.minorChords = [];
   $scope.seventhChords = [];
   $scope.newKey = [];
+  $scope.key = 'A';
 
   //sample key array
     $scope.chords = [
@@ -22,13 +23,8 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
       { name: 'B7' }
     ];
 
-  //start the svg generator
-
   // var udi = {title:"C7♭9",fret:"x,3,2,3,2,3",label:""};
   
-
-
-
   ///start the chord logic
   console.log('transposer');
 

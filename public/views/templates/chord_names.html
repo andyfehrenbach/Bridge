@@ -4,7 +4,7 @@
       <h3>Select Open Key</h3>
       <uib-carousel active="active" no-wrap="noWrapSlides">
         <uib-slide ng-repeat="slide in openKeys track by slide.id" index="slide.id">
-          <h1 class="key-name"> {{slide.key}} </h1>
+          <h1 class="key-name" ng-model="key"> {{slide.key}} </h1>
 
 
           <div class="carousel-caption">
@@ -29,7 +29,7 @@
     </uib-carousel>
   </div>
 </div>
-<h1>Open Chords</h1>
+<h1>Open Chords in the key of </h1>
 
 <div class="row chords" ng-controller="Key_makerController">
     <div class="chord-card clearfix">

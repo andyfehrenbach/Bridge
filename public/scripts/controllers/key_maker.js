@@ -5,33 +5,10 @@ $scope.majorChords = undefined;
 $scope.minorChords = undefined;
 $scope.seventhChords = undefined;
 $scope.keyOfC = [];
-$scope.keyOfC = [];
 $scope.keyOfA = [];
 $scope.keyOfG = [];
 $scope.keyOfE = [];
 $scope.keyOfD = [];
-
-// $scope.chords = [
-//   { name: 'C' },
-//   { name: 'Dm' },
-//   { name: 'Em' },
-//   { name: 'F' },
-//   { name: 'G' },
-//   { name: 'Am' },
-//   { name: 'B7' }
-// ];
-
-
-// var placeholder = document.getElementByClassName($scope.chords.name);
-// var placeholder = document.getElementById('exampleChart');
-
-// for (var i = 0; i < $scope.keyOfC.length; i++) {
-//   var [placeholder + i]=$scope.keyOfC[i]
-// }
-
-
-
-
 
 
 //// Start a whole bunch of data factory retrieval
@@ -47,7 +24,6 @@ $scope.keyOfD = [];
       } else {
           $scope.majorChords = $scope.dataFactory.majorChords();
           // console.log($scope.majorChords);
-          // createChart(placeholder,udi);
 
       }
 
@@ -76,16 +52,7 @@ $scope.keyOfD = [];
               console.log($scope.keyOfC);
               console.log($scope.keyOfA);
 
-              var createChart = chartMaker();
-
-              createChart(document.getElementById('1'),$scope.keyOfC[0].chord_info);
-              createChart(document.getElementById('2'),$scope.keyOfC[1].chord_info);
-              createChart(document.getElementById('3'),$scope.keyOfC[2].chord_info);
-              createChart(document.getElementById('4'),$scope.keyOfC[3].chord_info);
-              createChart(document.getElementById('5'),$scope.keyOfC[4].chord_info);
-              createChart(document.getElementById('6'),$scope.keyOfC[5].chord_info);
-              createChart(document.getElementById('7'),$scope.keyOfC[6].chord_info);
-
+              createCharts($scope.keyOfA);
 
 
 
@@ -93,13 +60,9 @@ $scope.keyOfD = [];
       } else {
           $scope.seventhChords = $scope.dataFactory.seventhChords();
           // console.log($scope.seventhChords);
-          // udi = $scope.seventhChords[0].chord_info;
-          // createChart(placeholder,udi);
           writeC();
           writeA();
-          console.log($scope.keyOfC);
           console.log($scope.keyOfA);
-
           console.log($scope.keyOfC);
 
       }
@@ -107,7 +70,6 @@ $scope.keyOfD = [];
 
 //append SVGs to DOM
 if ($scope.majorChords && $scope.minorChords && $scope.seventhChords) {
-
 }
 
 
@@ -129,6 +91,18 @@ function stripKeyInfo(key) {
       key[i].chord_name = key[i].chord_name.substring(0,key[i].chord_name.length - 1);
     }
   }
+}
+
+function createCharts(key) {
+  var createChart = chartMaker();
+
+  createChart(document.getElementById('1'), key[0].chord_info);
+  createChart(document.getElementById('2'), key[1].chord_info);
+  createChart(document.getElementById('3'), key[2].chord_info);
+  createChart(document.getElementById('4'), key[3].chord_info);
+  createChart(document.getElementById('5'), key[4].chord_info);
+  createChart(document.getElementById('6'), key[5].chord_info);
+  createChart(document.getElementById('7'), key[6].chord_info);
 }
 
 // begin writing keys
@@ -153,8 +127,8 @@ function writeA() {
        $scope.majorChords[0],
        $scope.minorChords[2],
        $scope.minorChords[4],
-       $scope.majorChords[4],
-       $scope.majorChords[6],
+       $scope.majorChords[5],
+       $scope.majorChords[7],
        $scope.minorChords[9],
        $scope.seventhChords[11]
   ];
