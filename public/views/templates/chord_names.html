@@ -31,21 +31,46 @@
 </div>
 <h1>Open Chords</h1>
 
-<div class="row chords" >
-  <div class="chord-card clearfix" ng-repeat="chord in chords">
-    <h4> Numeral</h4>
-    <svg ng-class="chord.name"></svg>
-    <div class="row chord-names">
-      <h4 class="normal"> {{chord.name}} </h4>
-      <h4 class="transposed"> {{chord.transposedChord}} </h4>
+<div class="row chords" ng-controller="Key_makerController">
+    <div class="chord-card clearfix">
+      <h4> I </h4>
+      <svg class="chord" id="1"></svg>
+        <h4 class="transposed">  </h4>
     </div>
-  </div>
-</div>
 
-<div class="test" ng-controller="Key_makerController">
+    <div class="chord-card clearfix">
+      <h4> II </h4>
+      <svg class="chord" id="2"></svg>
+        <h4 class="transposed">  </h4>
+    </div>
 
-<svg class="chord" ></svg>
+    <div class="chord-card clearfix">
+      <h4> III </h4>
+      <svg class="chord" id="3"></svg>
+        <h4 class="transposed">  </h4>
+    </div>
 
+    <div class="chord-card clearfix">
+      <h4> IV </h4>
+      <svg class="chord" id="4"></svg>
+        <h4 class="transposed">  </h4>
+    </div>
 
+    <div class="chord-card clearfix">
+      <h4> V </h4>
+      <svg class="chord" id="5"></svg>
+        <h4 class="transposed">  </h4>
+    </div>
 
+    <div class="chord-card clearfix">
+      <h4> VI </h4>
+      <svg class="chord" id="6"></svg>
+        <h4 class="transposed">  </h4>
+    </div>
+
+    <div class="chord-card clearfix">
+      <h4> VII </h4>
+      <svg class="chord" id="7"></svg>
+        <h4 class="transposed">  </h4>
+    </div>
 </div>
