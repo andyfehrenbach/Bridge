@@ -11,6 +11,26 @@ $scope.keyOfG = [];
 $scope.keyOfE = [];
 $scope.keyOfD = [];
 
+// $scope.chords = [
+//   { name: 'C' },
+//   { name: 'Dm' },
+//   { name: 'Em' },
+//   { name: 'F' },
+//   { name: 'G' },
+//   { name: 'Am' },
+//   { name: 'B7' }
+// ];
+
+var createChart = chartMaker();
+// var placeholder = document.getElementByClassName($scope.chords.name);
+var placeholder = document.getElementById('exampleChart');
+
+// for (var i = 0; i < $scope.keyOfC.length; i++) {
+//   var [placeholder + i]=$scope.keyOfC[i]
+// }
+
+
+
 
 
 
@@ -21,15 +41,15 @@ $scope.keyOfD = [];
           // initial load
           $scope.dataFactory.retrieveMajorChords().then(function() {
               $scope.majorChords = $scope.dataFactory.majorChords();
-              // console.log($scope.majorChords);
-              udi = $scope.majorChords[10].chord_info;
+              console.log($scope.majorChords);
+              // udi = $scope.majorChords[10].chord_info;
                   // createChart(placeholder,udi);
 
           });
       } else {
           $scope.majorChords = $scope.dataFactory.majorChords();
           // console.log($scope.majorChords);
-          udi = $scope.majorChords[0].chord_info;
+          // udi = $scope.majorChords[0].chord_info;
           // createChart(placeholder,udi);
 
       }
@@ -40,14 +60,10 @@ $scope.keyOfD = [];
           $scope.dataFactory.retrieveMinorChords().then(function() {
               $scope.minorChords = $scope.dataFactory.minorChords();
               // console.log($scope.minorChords);
-              // udi = $scope.minorChords[10].chord_info;
-              //     createChart(placeholder,udi);
           });
       } else {
           $scope.minorChords = $scope.dataFactory.minorChords();
           // console.log($scope.minorChords);
-          // udi = $scope.minorChords[0].chord_info;
-          // createChart(placeholder,udi);
       }
 
       //// handles the get route for seventh chords
@@ -56,12 +72,12 @@ $scope.keyOfD = [];
           $scope.dataFactory.retrieveSeventhChords().then(function() {
               $scope.seventhChords = $scope.dataFactory.seventhChords();
               // console.log($scope.seventhChords);
-              // udi = $scope.seventhChords[10].chord_info;
-              //     createChart(placeholder,udi);
               writeC();
               writeA();
               console.log($scope.keyOfC);
               console.log($scope.keyOfA);
+              // createChart(placeholder,$scope.keyOfC[0].chord_info);
+              $scope.createChart = createChart(placeholder,$scope.keyOfC[1].chord_info);
 
 
 

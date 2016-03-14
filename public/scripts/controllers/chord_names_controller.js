@@ -25,10 +25,7 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
   //start the svg generator
 
   // var udi = {title:"C7♭9",fret:"x,3,2,3,2,3",label:""};
-  var createChart = chartMaker();
-  var placeholder = document.getElementById("exampleChart");
-  var udi;
-
+  
 
 
 

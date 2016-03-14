@@ -34,7 +34,7 @@
 <div class="row chords" >
   <div class="chord-card clearfix" ng-repeat="chord in chords">
     <h4> Numeral</h4>
-      <img class="chord" alt="" />
+    <svg ng-class="chord.name"></svg>
     <div class="row chord-names">
       <h4 class="normal"> {{chord.name}} </h4>
       <h4 class="transposed"> {{chord.transposedChord}} </h4>
@@ -43,5 +43,9 @@
 </div>
 
 <div class="test" ng-controller="Key_makerController">
-<svg class="chord" id="exampleChart"></svg>
+
+<svg class="chord" ></svg>
+
+
+
 </div>
