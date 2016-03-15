@@ -3,7 +3,7 @@
 
 body {
   background: #ddd;
-  font-size: 1.5 rem;
+  font-size: 1.5rem;
   text-align: center;
   font-family: "Verdana", sans-serif; }
 
@@ -38,7 +38,8 @@ body {
   margin: 0 auto; }
 
 h4 {
-  margin: .5em 1em; }
+  margin: .5em 1em;
+  font-size: 1.5em; }
 
 .test {
   width: 400px;
@@ -57,7 +58,10 @@ header {
 
 li {
   display: inline-block;
-  margin: 1rem; }
+  padding: .6em;
+  height: 100%; }
+  li:hover {
+    background-color: #16d09e; }
 
 a {
   color: #fff;

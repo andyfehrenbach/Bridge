@@ -6,7 +6,12 @@ header {
 }
   li {
     display: inline-block;
-    margin: 1rem;
+    padding: .6em;
+    height: 100%;
+
+    &:hover {
+      background-color: $green;
+    }
 
   }
     a {

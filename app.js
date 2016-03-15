@@ -21,6 +21,7 @@ app.use('/seventh_chords', seventh_chords);
 
 // Serve back static files
 app.use(express.static('public'));
+app.use(express.static('public/images'));
 app.use(express.static('public/views'));
 app.use(express.static('public/views/templates'));
 app.use(express.static('public/scripts'));

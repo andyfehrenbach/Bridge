@@ -9,68 +9,68 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
   $scope.majorChords = [];
   $scope.minorChords = [];
   $scope.seventhChords = [];
-  $scope.newKey = [];
+  // $scope.newKey = [];
   $scope.key = 'A';
 
   //sample key array
-    $scope.chords = [
-      { name: 'C' },
-      { name: 'Dm' },
-      { name: 'Em' },
-      { name: 'F' },
-      { name: 'G' },
-      { name: 'Am' },
-      { name: 'B7' }
-    ];
+    // $scope.chords = [
+    //   { name: 'C' },
+    //   { name: 'Dm' },
+    //   { name: 'Em' },
+    //   { name: 'F' },
+    //   { name: 'G' },
+    //   { name: 'Am' },
+    //   { name: 'B7' }
+    // ];
 
   // var udi = {title:"C7♭9",fret:"x,3,2,3,2,3",label:""};
-  
+
   ///start the chord logic
-  console.log('transposer');
+  // console.log('transposer');
+  //
+  // $scope.majorChords = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
+  //
+  //
+  // $scope.keyOfC = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 
-  $scope.majorChords = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
-
-
-  $scope.keyOfC = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
-
-  $scope.capoPosition = 1;
-
-  function transpose(keyArray, capoPosition, initialChordsObject) {
-    var transposedArray = [];
-
-    for (var i = 0; i < keyArray.length; i++) {
-      var newIndex = (findIndex(keyArray[i]) + capoPosition) % $scope.majorChords.length;
-      // console.log(newIndex);
-      var newChord = $scope.majorChords[newIndex];
-      // console.log(newChord);
-      transposedArray.push(newChord);
-      //trying to get the new chords into the chords array
-      initialChordsObject[i].transposedChord = transposedArray[i];
-      // console.log($scope.chords);
-    }
-    return transposedArray;
-  }
-
-
-  function findIndex(note) {
-    for (var i = 0; i < $scope.majorChords.length; i++) {
-      if ($scope.majorChords[i] == note) {
-        return i;
-      }
-    }
-  }
-
-  function addSuffix(key) {
-    key[1] += 'm';
-    key[2] += 'm';
-    key[5] += 'm';
-    key[6] += '7';
-    return key;
-  }
+  // $scope.capoPosition = 1;
+  //
+  // function transpose(keyArray, capoPosition, initialChordsObject) {
+  //   var transposedArray = [];
+  //
+  //   for (var i = 0; i < keyArray.length; i++) {
+  //     var newIndex = (findIndex(keyArray[i]) + capoPosition) % $scope.majorChords.length;
+  //     // console.log(newIndex);
+  //     var newChord = $scope.majorChords[newIndex];
+  //     // console.log(newChord);
+  //     transposedArray.push(newChord);
+  //     //trying to get the new chords into the chords array
+  //     initialChordsObject[i].transposedChord = transposedArray[i];
+  //     // console.log($scope.chords);
+  //   }
+  //   return transposedArray;
+  // }
+  //
+  //
+  // function findIndex(note) {
+  //   for (var i = 0; i < $scope.majorChords.length; i++) {
+  //     if ($scope.majorChords[i] == note) {
+  //       return i;
+  //     }
+  //   }
+  // }
+  //
+  // function addSuffix(key) {
+  //   key[1] += 'm';
+  //   key[2] += 'm';
+  //   key[5] += 'm';
+  //   key[6] += '7';
+  //   return key;
+  // }
 
 ///convert key calls
-  $scope.newKey = addSuffix(transpose($scope.keyOfC, $scope.capoPosition, $scope.chords));
-  console.log($scope.newKey);
+  // $scope.newKey = addSuffix(transpose($scope.keyOfC, $scope.capoPosition, $scope.chords));
+  // console.log($scope.newKey);
 
 
 
@@ -78,6 +78,7 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
 
   $scope.noWrapSlides = false;
   $scope.active = 0;
+  $scope.active.key = 'fish';
   // var currIndex = 0;
   $scope.openKeys = [
     { id: 0, key: 'A' },

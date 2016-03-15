@@ -1,5 +1,6 @@
 myApp.controller('Key_makerController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
 
+///data retrieval variables
 $scope.dataFactory = DataFactory;
 $scope.majorChords = undefined;
 $scope.minorChords = undefined;
@@ -9,6 +10,15 @@ $scope.keyOfA = [];
 $scope.keyOfG = [];
 $scope.keyOfE = [];
 $scope.keyOfD = [];
+
+/////transposing logic variables
+$scope.majorChords = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
+$scope.capoPosition = 1;
+var smallArray = [];
+$scope.chords = [{},{},{},{},{},{},{}];
+$scope.newKey = [];
+$scope.sampleKey = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+
 
 
 //// Start a whole bunch of data factory retrieval
@@ -49,10 +59,19 @@ $scope.keyOfD = [];
               // createChart(placeholder,$scope.keyOfC[0].chord_info);
               writeC();
               writeA();
-              console.log($scope.keyOfC);
-              console.log($scope.keyOfA);
+              // console.log($scope.keyOfC);
+              // console.log($scope.keyOfA);
 
               createCharts($scope.keyOfA);
+///testing small array function
+
+              createSmallArray($scope.keyOfA);
+              console.log(smallArray);
+
+              $scope.newKey = addSuffix(transpose($scope.sampleKey, $scope.capoPosition, $scope.chords));
+              console.log($scope.newKey);
+
+
 
 
 
@@ -68,26 +87,20 @@ $scope.keyOfD = [];
       }
 ///// END OF DATA FACTORY RETRIEVAL
 
-//append SVGs to DOM
-if ($scope.majorChords && $scope.minorChords && $scope.seventhChords) {
-}
-
-
-
-//add musical nummeral to each chord in key array.
-function addNumeral (key) {
-  for (var i = 0; i < key.length; i++) {
-    key[i].numeral = i + 1;
-  }
-}
+//add musical numeral to each chord in key array.
+// function addNumeral (key) {
+//   for (var i = 0; i < key.length; i++) {
+//     key[i].numeral = i + 1;
+//   }
+// }
 
 function stripKeyInfo(key) {
   for (var i = 0; i < key.length; i++) {
     if (key[i].chord_name.indexOf('m') !== -1) {
-      console.log('applied at key:', key[i].chord_name);
+      // console.log('applied at key:', key[i].chord_name);
       key[i].chord_name = key[i].chord_name.substring(0, key[i].chord_name.length - 1);
     } else if (key[i].chord_name.indexOf('7') !== -1) {
-        console.log('applied at key:', key[i].chord_name);
+        // console.log('applied at key:', key[i].chord_name);
       key[i].chord_name = key[i].chord_name.substring(0,key[i].chord_name.length - 1);
     }
   }
@@ -105,19 +118,73 @@ function createCharts(key) {
   createChart(document.getElementById('7'), key[6].chord_info);
 }
 
+/////Begin Transposing logic
+console.log('transposer');
+
+
+
+
+
+
+function transpose(keyArray, capoPosition, initialChordsObject) {
+
+  console.log('transpose function running');
+  var transposedArray = [];
+    console.log(keyArray);
+  for (var i = 0; i < keyArray.length; i++) {
+    var newIndex = (findIndex(keyArray[i]) + capoPosition) % $scope.majorChords.length;
+    console.log(newIndex);
+    var newChord = $scope.majorChords[newIndex];
+    // console.log(newChord);
+    transposedArray.push(newChord);
+    //trying to get the new chords into the chords array
+    initialChordsObject[i].transposedChord = transposedArray[i];
+    // console.log($scope.chords);
+  }
+  return transposedArray;
+}
+
+
+function findIndex(note) {
+  for (var i = 0; i < $scope.majorChords.length; i++) {
+    if ($scope.majorChords[i] == note) {
+      return i;
+    }
+  }
+}
+
+function addSuffix(key) {
+  key[1] += 'm';
+  key[2] += 'm';
+  key[5] += 'm';
+  key[6] += '7';
+  return key;
+}
+//////
+
+function createSmallArray (keyArray) {
+
+  for (var i = 0; i < keyArray.length; i++) {
+    smallArray.push(keyArray[i].chord_name);
+  }
+}
+
+
+
+
 // begin writing keys
 // Write C
 function writeC() {
     $scope.keyOfC = [
        $scope.majorChords[3],
-       $scope.minorChords[6],
+       $scope.minorChords[5],
        $scope.minorChords[7],
        $scope.majorChords[8],
        $scope.majorChords[10],
-       $scope.minorChords[1],
+       $scope.minorChords[0],
        $scope.seventhChords[2]
   ];
-    addNumeral($scope.keyOfC);
+    // addNumeral($scope.keyOfC);
     stripKeyInfo($scope.keyOfC);
 }
 
@@ -132,7 +199,8 @@ function writeA() {
        $scope.minorChords[9],
        $scope.seventhChords[11]
   ];
-    addNumeral($scope.keyOfA);
+    // addNumeral($scope.keyOfA);
+    stripKeyInfo($scope.keyOfA);
 }
 
 
