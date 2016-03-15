@@ -1,79 +1,62 @@
-<div class="row selectors">
-
-  <div class="selector">
-      <h3>Select Open Key</h3>
-      <uib-carousel active="active" no-wrap="noWrapSlides">
-        <uib-slide ng-repeat="slide in openKeys track by slide.id" index="slide.id">
-          <h1 class="key-name" ng-model="key"> {{slide.key}} </h1>
+<div class="selectors">
 
 
-          <div class="carousel-caption">
-            <!-- <h4>Slide {{slide.id}}</h4> -->
-            <!-- <p>{{slide.text}}</p> -->
-          </div>
-        </uib-slide>
-        <p>
-          {{active.key}}
-        </p>
-      </uib-carousel>
-    </div>
+  <form class="form-inline chord-form">
+    <select class="form-control" ng-model="selectedKey" ng-options="key for key in openKeys" ng-change="getChords(selectedKey, allOpenKeys)">
+      <option value="">Choose an Open Key</option>
+    </select>
 
-<!--  -->
-<div class="selector">
-  <h3>Capo Position</h3>
-    <uib-carousel active="activeCapo" no-wrap="noWrapSlides" ng-click="runConversion()">
-      <uib-slide ng-repeat="slide in capoPositions track by slide.id" index="slide.id">
-        <h1 class="key-name" ng-model="capoPosition"> {{slide.fret}}</h1>
-        <div class="carousel-caption">
-          <!-- <h4>Slide {{slide.id}}</h4> -->
-          <!-- <p>{{slide.text}}</p> -->
-        </div>
-      </uib-slide>
-    </uib-carousel>
-  </div>
+    <select class="form-control" ng-model="capoPosition" ng-options="capoPosition for capoPosition in capoPositions">
+      <option value="">Choose a Capo Position</option>
+    </select>
+    <button class="btn-primary" id="submit" ng-click="getChords(selectedKey, allOpenKeys)" > Get Chords </button>
+  </form>
+
+  <!--  -->
+
 </div>
-<h1>Open Chords in the key of </h1>
+<h1>Open Chords in the key of {{selectedKey}} </h1>
 
-<div class="row chords" ng-controller="Key_makerController">
-    <div class="chord-card clearfix">
-      <h4> I </h4>
-      <svg class="chord" id="1"></svg>
-        <h4 class="transposed"> {{newKey[0]}} </h4>
-    </div>
+<div class="row chords" >
+  <div class="chord-card clearfix">
+    <h4> I </h4>
+    <svg class="chord" id="1"></svg>
+    <h4 class="transposed"> {{newKey[0]}} </h4>
+  </div>
 
-    <div class="chord-card clearfix">
-      <h4> II </h4>
-      <svg class="chord" id="2"></svg>
-        <h4 class="transposed"> {{newKey[1]}} </h4>
-    </div>
+  <div class="chord-card clearfix">
+    <h4> II </h4>
+    <svg class="chord" id="2"></svg>
+    <h4 class="transposed"> {{newKey[1]}} </h4>
+  </div>
 
-    <div class="chord-card clearfix">
-      <h4> III </h4>
-      <svg class="chord" id="3"></svg>
-        <h4 class="transposed"> {{newKey[2]}} </h4>
-    </div>
+  <div class="chord-card clearfix">
+    <h4> III </h4>
+    <svg class="chord" id="3"></svg>
+    <h4 class="transposed"> {{newKey[2]}} </h4>
+  </div>
 
-    <div class="chord-card clearfix">
-      <h4> IV </h4>
-      <svg class="chord" id="4"></svg>
-        <h4 class="transposed"> {{newKey[3]}} </h4>
-    </div>
+  <div class="chord-card clearfix">
+    <h4> IV </h4>
+    <svg class="chord" id="4"></svg>
+    <h4 class="transposed"> {{newKey[3]}} </h4>
+  </div>
 
-    <div class="chord-card clearfix">
-      <h4> V </h4>
-      <svg class="chord" id="5"></svg>
-        <h4 class="transposed"> {{newKey[4]}} </h4>
-    </div>
+  <div class="chord-card clearfix">
+    <h4> V </h4>
+    <svg class="chord" id="5"></svg>
+    <h4 class="transposed"> {{newKey[4]}} </h4>
+  </div>
 
-    <div class="chord-card clearfix">
-      <h4> VI </h4>
-      <svg class="chord" id="6"></svg>
-        <h4 class="transposed"> {{newKey[5]}} </h4>
-    </div>
+  <div class="chord-card clearfix">
+    <h4> VI </h4>
+    <svg class="chord" id="6"></svg>
+    <h4 class="transposed"> {{newKey[5]}} </h4>
+  </div>
 
-    <div class="chord-card clearfix">
-      <h4> VII </h4>
-      <svg class="chord" id="7"></svg>
-        <h4 class="transposed"> {{newKey[6]}} </h4>
-    </div>
+  <div class="chord-card clearfix">
+    <h4> VII </h4>
+    <svg class="chord" id="7"></svg>
+    <h4 class="transposed"> {{newKey[6]}} </h4>
+  </div>
 </div>
