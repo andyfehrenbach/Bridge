@@ -2,19 +2,20 @@
 
 
   <form class="form-inline chord-form">
-    <select class="form-control" ng-model="selectedAllKey" ng-options="key for key in allKeys" ng-change="getChords(selectedKey, allOpenKeys)">
-      <option value="">Choose a Key</option>
+    <label for="selectedAllKey">Choose a Key</label>
+    <select name="selectedAllKey" class="form-control" ng-model="selectedAllKey" ng-options="key.Key for key in allKeys" ng-change="getChords(selectedAllKey, recommendation)">
+      <option value=""></option>
     </select>
-
-    <select class="form-control" ng-model="recommendation" ng-options="recommendation for recommendation in recommendations" ng-change="getChords(selectedKey, allOpenKeys)">
-      <option value="">Choose a recommendation</option>
+    <label for="recommendation">Choose a Recommendation</label>
+    <select class="form-control" ng-model="recommendation" ng-options="recommendation for recommendation in recommendations" ng-change="getChords(selectedKey, recommendation)">
+      <option value=""></option>
     </select>
   </form>
 
   <!--  -->
 
 </div>
-<h1>Open Chords in the key of {{selectedKey}}: </h1>
+<h1>To play in {{selectedAllKey.Key}}, use the open chords in {{selectedAllKey.Key}} with the capo on {{fret}}. </h1>
 
 <div class="row chords" >
   <div class="chord-card clearfix">

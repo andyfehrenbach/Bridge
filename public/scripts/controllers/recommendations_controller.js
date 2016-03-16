@@ -1,5 +1,8 @@
 myApp.controller('RecommendationsController', ['$scope', '$http', function($scope, $http) {
     console.log('the RecommendationsController controller is working');
+$scope.selectedAllKey = 'A';
+$scope.fret = '0';
+
 $scope.allKeys = [
   {Key: 'A',
    Recommendations: [{First: 'A', Capo: 0},
