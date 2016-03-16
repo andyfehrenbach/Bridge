@@ -8,7 +8,7 @@ body {
   // background: url("../../images/jam-sunset.jpg"), no-repeat center center, gray;
   // background-blend-mode: screen;
   // background-size: contain;
-  background: #ddd;
+  background: #eee;
   font-size: 1.5rem;
   text-align: center;
   font-family: $primary;
@@ -40,13 +40,12 @@ body {
     flex: 1;
     // background-color: grey;
     height: 100%;
-    margin: 0 1rem;
+    padding: 0 1rem;
     display: inline;
   }
     .chord {
       width: 100%;
       height: 8rem;
-      background-color: lightblue;
       display: block;
       margin: 0 auto;
     }
@@ -61,7 +60,3 @@ body {
       height: 400px;
       background: #ddd;
     }
-
-
-    svg.chordChart .grid{ stroke: black;}
-    svg.chordChart .labels{ fill: white;}

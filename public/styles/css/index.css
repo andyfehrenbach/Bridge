@@ -2,7 +2,7 @@
   cursor: pointer; }
 
 body {
-  background: #ddd;
+  background: #eee;
   font-size: 1.5rem;
   text-align: center;
   font-family: "Verdana", sans-serif; }
@@ -27,13 +27,12 @@ body {
 .chord-card {
   flex: 1;
   height: 100%;
-  margin: 0 1rem;
+  padding: 0 1rem;
   display: inline; }
 
 .chord {
   width: 100%;
   height: 8rem;
-  background-color: lightblue;
   display: block;
   margin: 0 auto; }
 
@@ -45,12 +44,6 @@ h4 {
   width: 400px;
   height: 400px;
   background: #ddd; }
-
-svg.chordChart .grid {
-  stroke: black; }
-
-svg.chordChart .labels {
-  fill: white; }
 
 header {
   background-color: #222;
@@ -87,5 +80,16 @@ img {
 
 .carousel-indicators li {
   display: none; }
+
+svg.chordChart .grid {
+  stroke: black;
+  stroke-width: 2; }
+
+svg.chordChart .labels {
+  fill: white; }
+
+svg.chordChart .dots {
+  stroke: none;
+  fill: #16d09e; }
 
 /*# sourceMappingURL=index.css.map */

@@ -6,16 +6,15 @@
       <option value="">Choose an Open Key</option>
     </select>
 
-    <select class="form-control" ng-model="capoPosition" ng-options="capoPosition for capoPosition in capoPositions">
+    <select class="form-control" ng-model="capoPosition" ng-options="capoPosition for capoPosition in capoPositions" ng-change="getChords(selectedKey, allOpenKeys)">
       <option value="">Choose a Capo Position</option>
     </select>
-    <button class="btn-primary" id="submit" ng-click="getChords(selectedKey, allOpenKeys)" > Get Chords </button>
   </form>
 
   <!--  -->
 
 </div>
-<h1>Open Chords in the key of {{selectedKey}} </h1>
+<h1>Open Chords in the key of {{selectedKey}}: </h1>
 
 <div class="row chords" >
   <div class="chord-card clearfix">

@@ -1,12 +1,18 @@
 
 
 myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
-  console.log('the Chord Names controller is working');
+console.log('the Chord Names controller is working');
 
-  // selector variables
-  $scope.selectedKey = '';
-  $scope.openKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-  $scope.capoPositions = ['0','1','2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+// //
+// $scope.dataFactory.retrieveMajorChords();
+// $scope.dataFactory.retrieveMinorChords();
+// $scope.dataFactory.retrieveSeventhChords();
+// console.log();
+
+// selector variables
+$scope.selectedKey = 'C';
+$scope.openKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+$scope.capoPositions = ['0','1','2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
 
 ///data retrieval variables
@@ -18,55 +24,55 @@ $scope.allOpenKeys = [];
 
 /////transposing logic variables
 $scope.allNotes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
-$scope.capoPosition = 1;
+$scope.capoPosition = 0;
 var smallArray = [];
 $scope.chords = [{},{},{},{},{},{},{}];
 $scope.newKey = [];
-$scope.sampleKey = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+
 
 
 
 //// Start a whole bunch of data factory retrieval
   //// handles the get route for major chords
 
-  if ($scope.dataFactory.majorChords() === undefined) {
+  // if ($scope.dataFactory.majorChords() === undefined) {
           // initial load
           $scope.dataFactory.retrieveMajorChords().then(function() {
               $scope.majorChords = $scope.dataFactory.majorChords();
               console.log($scope.majorChords);
 
           });
-      } else {
+      // } else {
           $scope.majorChords = $scope.dataFactory.majorChords();
           // console.log($scope.majorChords);
 
-      }
+      // }
 
   //// handles the get route for minor chords
-  if ($scope.dataFactory.minorChords() === undefined) {
+  // if ($scope.dataFactory.minorChords() === undefined) {
           // initial load
           $scope.dataFactory.retrieveMinorChords().then(function() {
               $scope.minorChords = $scope.dataFactory.minorChords();
               // console.log($scope.minorChords);
           });
-      } else {
+      // } else {
           $scope.minorChords = $scope.dataFactory.minorChords();
           // console.log($scope.minorChords);
-      }
+      // }
 
       //// handles the get route for seventh chords
-  if ($scope.dataFactory.seventhChords() === undefined) {
+  // if ($scope.dataFactory.seventhChords() === undefined) {
           // initial load
           $scope.dataFactory.retrieveSeventhChords().then(function() {
               $scope.seventhChords = $scope.dataFactory.seventhChords();
-              // console.log($scope.seventhChords);
-
-              // createChart(placeholder,$scope.keyOfC[0].chord_info);
               writeC();
               writeA();
               console.log($scope.allOpenKeys);
               // console.log($scope.keyOfC);
               // console.log($scope.keyOfA);
+              ///call key of c on load for the heck of it
+              createCharts($scope.keyOfC);
+              //
               $scope.getChords = function (selectedKey, allOpenKeys) {
                 console.log('get Chords is running for:', selectedKey);
                 for (var i = 0; i < allOpenKeys.length; i++) {
@@ -76,34 +82,16 @@ $scope.sampleKey = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
                     console.log(smallArray);
                     $scope.newKey = addSuffix(transpose(smallArray, $scope.capoPosition, $scope.chords));
                     console.log($scope.newKey);
+
                   }
                 }
-
-                // createCharts('$scope.keyOf' + selectedKey);
+                smallArray = [];
               };
-              // createCharts($scope.keyOfA);
-///testing small array function
-
-
-
-
-
-
-
-
-
 
           });
-      } else {
+      // } else {
           $scope.seventhChords = $scope.dataFactory.seventhChords();
-          // console.log($scope.seventhChords);
-          writeC();
-          writeA();
-          console.log($scope.keyOfA);
-          console.log($scope.keyOfC);
-
-
-      }
+      // }
 ///// END OF DATA FACTORY RETRIEVAL
 
 //add musical numeral to each chord in key array.
@@ -139,12 +127,12 @@ function createCharts(key) {
 
 /////Begin Transposing logic
 console.log('transposer');
-
+var newIndex = 0;
 function transpose(keyArray, capoPosition, initialChordsObject) {
   console.log('transpose function running');
     var transposedArray = [];
     for (var i = 0; i < keyArray.length; i++) {
-      var newIndex = (findIndex(keyArray[i]) + capoPosition) % $scope.allNotes.length;
+      newIndex = (findIndex(keyArray[i]) + parseInt(capoPosition)) % $scope.allNotes.length;
       var newChord = $scope.allNotes[newIndex];
       transposedArray.push(newChord);
       //trying to get the new chords into the chords array
