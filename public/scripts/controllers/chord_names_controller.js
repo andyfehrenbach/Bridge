@@ -24,7 +24,7 @@ $scope.allOpenKeys = [];
 
 /////transposing logic variables
 $scope.allNotes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
-$scope.capoPosition = 0;
+$scope.capoPosition = '0';
 var smallArray = [];
 $scope.chords = [{},{},{},{},{},{},{}];
 $scope.newKey = [];
@@ -70,7 +70,12 @@ $scope.newKey = [];
               // console.log($scope.keyOfC);
               // console.log($scope.keyOfA);
               ///call key of c on load for the heck of it
-              createCharts($scope.keyOfC);
+                createCharts($scope.keyOfC);
+                createSmallArray($scope.keyOfC);
+                $scope.newKey = addSuffix(transpose(smallArray, '0', $scope.chords));
+                console.log($scope.newKey);
+                smallArray = [];
+
               //
               $scope.getChords = function (selectedKey, allOpenKeys) {
                 console.log('get Chords is running for:', selectedKey);

@@ -2,23 +2,24 @@
 
 
   <form class="form-inline chord-form">
-    <select class="form-control" ng-model="selectedKey" ng-options="key for key in openKeys" ng-change="getChords(selectedKey, allOpenKeys)">
-      <option value="">Choose an Open Key</option>
+    <label for="open-keys"> Choose an Open Key</label>
+    <select name="open-keys" class="form-control" ng-model="selectedKey" ng-options="key for key in openKeys" ng-change="getChords(selectedKey, allOpenKeys)">
+      <option value=""></option>
     </select>
-
-    <select class="form-control" ng-model="capoPosition" ng-options="capoPosition for capoPosition in capoPositions" ng-change="getChords(selectedKey, allOpenKeys)">
-      <option value="">Choose a Capo Position</option>
+    <label for="capo-position"> Choose a Capo Position </label>
+    <select name="capo-position" class="form-control" ng-model="capoPosition" ng-options="capoPosition for capoPosition in capoPositions" ng-change="getChords(selectedKey, allOpenKeys)">
+      <option value=""></option>
     </select>
   </form>
 
   <!--  -->
 
 </div>
-<h1>Open Chords in the key of {{selectedKey}}: </h1>
+<h1>Open Chords in the key of {{selectedKey}}. </h1>
+<h1>With a Capo on {{capoPosition}}, you are now playing in {{newKey[0]}}. </h1>
 
 <div class="row chords" >
   <div class="chord-card clearfix">
-    <h4> I </h4>
     <svg class="chord" id="1"></svg>
     <h4 class="transposed"> {{newKey[0]}} </h4>
   </div>
