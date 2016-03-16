@@ -65,8 +65,7 @@ $scope.newKey = [];
           // initial load
           $scope.dataFactory.retrieveSeventhChords().then(function() {
               $scope.seventhChords = $scope.dataFactory.seventhChords();
-              writeC();
-              writeA();
+              writeAllKeys();
               console.log($scope.allOpenKeys);
               // console.log($scope.keyOfC);
               // console.log($scope.keyOfA);
@@ -182,10 +181,25 @@ function writeA() {
        $scope.minorChords[9],
        $scope.seventhChords[11]
   ];
-    // addNumeral($scope.keyOfA);
     stripKeyInfo($scope.keyOfA);
     $scope.allOpenKeys.push($scope.keyOfA);
     return $scope.keyOfA;
+}
+
+// Write B
+function writeB() {
+    $scope.keyOfB = [
+       $scope.majorChords[2],
+       $scope.minorChords[4],
+       $scope.minorChords[6],
+       $scope.majorChords[7],
+       $scope.majorChords[9],
+       $scope.minorChords[11],
+       $scope.seventhChords[1]
+  ];
+    stripKeyInfo($scope.keyOfB);
+    $scope.allOpenKeys.push($scope.keyOfB);
+    return $scope.keyOfB;
 }
 
 // Write C
@@ -199,10 +213,86 @@ function writeC() {
        $scope.minorChords[0],
        $scope.seventhChords[2]
   ];
-    // addNumeral($scope.keyOfC);
     stripKeyInfo($scope.keyOfC);
     $scope.allOpenKeys.push($scope.keyOfC);
     return $scope.keyOfC;
 }
+
+// Write D
+function writeD() {
+    $scope.keyOfD = [
+       $scope.majorChords[5],
+       $scope.minorChords[7],
+       $scope.minorChords[9],
+       $scope.majorChords[10],
+       $scope.majorChords[0],
+       $scope.minorChords[2],
+       $scope.seventhChords[4]
+  ];
+    stripKeyInfo($scope.keyOfD);
+    $scope.allOpenKeys.push($scope.keyOfD);
+    return $scope.keyOfD;
+}
+
+// Write E
+function writeE() {
+    $scope.keyOfE = [
+       $scope.majorChords[7],
+       $scope.minorChords[9],
+       $scope.minorChords[11],
+       $scope.majorChords[0],
+       $scope.majorChords[2],
+       $scope.minorChords[4],
+       $scope.seventhChords[6]
+  ];
+    stripKeyInfo($scope.keyOfE);
+    $scope.allOpenKeys.push($scope.keyOfE);
+    return $scope.keyOfE;
+}
+
+// Write F
+function writeF() {
+    $scope.keyOfF = [
+       $scope.majorChords[8],
+       $scope.minorChords[10],
+       $scope.minorChords[0],
+       $scope.majorChords[1],
+       $scope.majorChords[3],
+       $scope.minorChords[5],
+       $scope.seventhChords[7]
+  ];
+    stripKeyInfo($scope.keyOfF);
+    $scope.allOpenKeys.push($scope.keyOfF);
+    return $scope.keyOfF;
+}
+
+// Write G
+function writeG() {
+    $scope.keyOfG = [
+       $scope.majorChords[10],
+       $scope.minorChords[0],
+       $scope.minorChords[2],
+       $scope.majorChords[3],
+       $scope.majorChords[5],
+       $scope.minorChords[7],
+       $scope.seventhChords[9]
+  ];
+    stripKeyInfo($scope.keyOfG);
+    $scope.allOpenKeys.push($scope.keyOfG);
+    return $scope.keyOfG;
+}
+
+function writeAllKeys() {
+  writeA();
+  writeB();
+  writeC();
+  writeD();
+  writeE();
+  writeF();
+  writeG();
+}
+
+
+
 
 }]);
