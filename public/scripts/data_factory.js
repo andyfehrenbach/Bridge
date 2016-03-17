@@ -38,7 +38,6 @@ myApp.factory('DataFactory', ['$http', function($http) {
 
 
 function getAllChords() {
-
   console.log('getAllChords is running');
   return getMajorChords().then(function () {
       return getMinorChords().then(function () {
@@ -49,7 +48,6 @@ function getAllChords() {
         });
       });
     });
-
 }
 
 
@@ -192,7 +190,7 @@ function getAllChords() {
 
     //PUBLIC
 
-    var publicApi = {
+  var publicApi = {
 
         retrieveAllOpenKeys: function () {
           return allOpenKeys;

@@ -3,9 +3,7 @@
 myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
 console.log('the Chord Names controller is working');
 
-
-
-// selector variables
+// selector variables --Defaults
 $scope.selectedKey = 'C';
 $scope.openKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 $scope.capoPositions = ['0','1','2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
@@ -13,21 +11,18 @@ $scope.capoPositions = ['0','1','2', '3', '4', '5', '6', '7', '8', '9', '10', '1
 
 ///data retrieval variables
 $scope.dataFactory = DataFactory;
-$scope.majorChords = undefined;
-$scope.minorChords = undefined;
-$scope.seventhChords = undefined;
 $scope.allOpenKeys = [];
 
 if ($scope.dataFactory.retrieveAllOpenKeys() === undefined) {
-        // initial load
-        $scope.dataFactory.factoryGetAllChords().then(function() {
-            $scope.allOpenKeys = $scope.dataFactory.retrieveAllOpenKeys();
-            console.log($scope.allOpenKeys);
-              initializeC();
+    // initial load
+    $scope.dataFactory.factoryGetAllChords().then(function() {
+        $scope.allOpenKeys = $scope.dataFactory.retrieveAllOpenKeys();
+        console.log('if clause', $scope.allOpenKeys);
+          initializeC();
         });
     } else {
-          $scope.allOpenKeys = $scope.dataFactory.retrieveAllOpenKeys();
-          console.log('else clause', $scope.allOpenKeys);
+        $scope.allOpenKeys = $scope.dataFactory.retrieveAllOpenKeys();
+        console.log('else clause', $scope.allOpenKeys);
           initializeC();
     }
 
@@ -39,30 +34,20 @@ $scope.chords = [{},{},{},{},{},{},{}];
 $scope.newKey = [];
 
 
+$scope.getChords = function (selectedKey, allOpenKeys) {
+  console.log('get Chords is running for:', selectedKey);
+  for (var i = 0; i < allOpenKeys.length; i++) {
+    if (allOpenKeys[i][0].chord_name == selectedKey){
+      createCharts(allOpenKeys[i]);
+      createSmallArray(allOpenKeys[i]);
+      console.log(smallArray);
+      $scope.newKey = addSuffix(transpose(smallArray, $scope.capoPosition, $scope.chords));
+      console.log($scope.newKey);
 
-
-
-
-              // console.log($scope.allOpenKeys);
-              // ///call key of c on load for the heck of it
-
-
-
-              //
-              $scope.getChords = function (selectedKey, allOpenKeys) {
-                console.log('get Chords is running for:', selectedKey);
-                for (var i = 0; i < allOpenKeys.length; i++) {
-                  if (allOpenKeys[i][0].chord_name == selectedKey){
-                    createCharts(allOpenKeys[i]);
-                    createSmallArray(allOpenKeys[i]);
-                    console.log(smallArray);
-                    $scope.newKey = addSuffix(transpose(smallArray, $scope.capoPosition, $scope.chords));
-                    console.log($scope.newKey);
-
-                  }
-                }
-                smallArray = [];
-              };
+    }
+  }
+  smallArray = [];
+};
 
 
 ///// END OF DATA FACTORY RETRIEVAL

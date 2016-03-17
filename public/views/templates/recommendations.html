@@ -1,16 +1,20 @@
 <div class="selectors">
-
-
   <form class="form-inline chord-form">
     <label for="selectedAllKey">Choose a Key</label>
-    <select name="selectedAllKey" class="form-control" ng-model="selectedAllKey" ng-options="key.Key for key in allKeys" ng-change="getChords(selectedAllKey, recommendation)">
+    <select name="selectedAllKey" class="form-control" ng-model="selectedAllKey" ng-options="key.Key for key in allKeys" ng-change="getRecommendation(selectedAllKey, recommendation)">
       <option value=""></option>
     </select>
     <label for="recommendation">Choose a Recommendation</label>
-    <select class="form-control" ng-model="recommendation" ng-options="recommendation for recommendation in recommendations" ng-change="getChords(selectedKey, recommendation)">
+    <select class="form-control" ng-model="recommendation" ng-options="recommendation for recommendation in recommendations" ng-change="getRecommendation(selectedAllKey,recommendation)">
       <option value=""></option>
     </select>
   </form>
+  <p>
+    {{selectedAllKey.Key}}
+  </p>
+  <p>
+    {{recommendation}}
+  </p>
 
   <!--  -->
 

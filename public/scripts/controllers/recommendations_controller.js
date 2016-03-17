@@ -1,8 +1,7 @@
-myApp.controller('RecommendationsController', ['$scope', '$http', function($scope, $http) {
+myApp.controller('RecommendationsController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
     console.log('the RecommendationsController controller is working');
 $scope.selectedAllKey = 'A';
 $scope.fret = '0';
-
 $scope.allKeys = [
   {Key: 'A',
    Recommendations: [{First: 'A', Capo: 0},
@@ -73,5 +72,67 @@ $scope.allKeys = [
 ];
 
   $scope.recommendations = ['First', 'Second', 'Third', 'Fourth'];
+  $scope.dataFactory = DataFactory;
+  $scope.allOpenKeys = [];
+  ///begin factory retrieval
+  if ($scope.dataFactory.retrieveAllOpenKeys() === undefined) {
+      // initial load
+      $scope.dataFactory.factoryGetAllChords().then(function() {
+          $scope.allOpenKeys = $scope.dataFactory.retrieveAllOpenKeys();
+          console.log('if clause', $scope.allOpenKeys);
+            // initializeC();
+          });
+      } else {
+          $scope.allOpenKeys = $scope.dataFactory.retrieveAllOpenKeys();
+          console.log('else clause', $scope.allOpenKeys);
+            // initializeC();
+      }
+
+
+  $scope.getRecommendation = function (selectedAllKey, recommendation) {
+    var smallArray = [];
+    var currentSelection;
+    var currentRecommendation;
+    var selectedKey;
+    for (var i = 0; i < $scope.allKeys.length; i++) {
+      if ($scope.allKeys[i].Key == selectedAllKey.Key) {
+          currentSelection = $scope.allKeys[i];
+          console.log('currentSelection', currentSelection);
+
+          for (var j = 0; j < currentSelection.Recommendations.length; j++) {
+            // console.log(currentSelection.Recommendations[j]);
+            if (currentSelection.Recommendations[j].hasOwnProperty(recommendation)) {
+              currentRecommendation = currentSelection.Recommendations[j];
+              selectedKey = currentRecommendation[Object.keys(currentRecommendation)[0]];
+              console.log(selectedKey);
+              console.log('selected recommendation', currentRecommendation);
+            }
+          }
+      }
+      for (var k = 0; k < $scope.allOpenKeys.length; k++) {
+        if ($scope.allOpenKeys[k][0].chord_name == selectedKey){
+          createCharts($scope.allOpenKeys[k]);
+          createSmallArray($scope.allOpenKeys[k]);
+          console.log(smallArray);
+          $scope.newKey = addSuffix(transpose(smallArray, $scope.capoPosition, $scope.chords));
+          console.log($scope.newKey);
+
+        }
+      }
+  }
+};
+
+  function createCharts(key) {
+    var createChart = chartMaker();
+
+    createChart(document.getElementById('1'), key[0].chord_info);
+    createChart(document.getElementById('2'), key[1].chord_info);
+    createChart(document.getElementById('3'), key[2].chord_info);
+    createChart(document.getElementById('4'), key[3].chord_info);
+    createChart(document.getElementById('5'), key[4].chord_info);
+    createChart(document.getElementById('6'), key[5].chord_info);
+    createChart(document.getElementById('7'), key[6].chord_info);
+  }
+
 
 }]);
