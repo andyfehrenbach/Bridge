@@ -31,27 +31,4 @@ router.get('/', function(req, res) {
     }).sort({chord_id: 1 });
 });
 
-
-////update
-// router.put('/:id', function(req, res){
-//     AllTheChords.findByIdAndUpdate(
-//         {_id: req.params.id},
-//         {
-//             $set: {task_complete: true}
-//         },
-//         function(err, data) {
-//             if(err) {
-//                 console.log('ERR: ', err);
-//             }
-//
-//             res.send(data);
-//         }
-//     );
-//
-// });
-//
-
-
-
-
 module.exports = router;
