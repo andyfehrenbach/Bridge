@@ -6,8 +6,11 @@ var minor_chords = require('./routes/minor_chords');
 var seventh_chords = require('./routes/seventh_chords');
 var mongoose = require('mongoose');
 
+var user = process.env.dbuser;
+var password = process.env.dbpass;
+
 //mongoose connect
-mongoose.connect('mongodb://localhost/bridge_app');
+mongoose.connect('mongodb://user:password@ds015899.mlab.com:15899/bridge_app');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
