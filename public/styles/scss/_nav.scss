@@ -3,10 +3,19 @@
 header {
   background-color: $black;
   color: $white;
+  // border-bottom: .25em solid $white;
+  margin: 0 0 5vh 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+ul {
+  margin: 0;
+  text-align: left;
 }
   li {
     display: inline-block;
-    padding: .6em;
+    padding: 0.6em 1em;
     height: 100%;
 
     &:hover {
@@ -17,4 +26,9 @@ header {
     a {
     color: $white;
     text-decoration: none;
+
+    &:hover{
+      color: $white;
+      text-decoration: none;
+    }
   }

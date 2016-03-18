@@ -1,7 +1,6 @@
 
 
 myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
-console.log('the Chord Names controller is working');
 
 // selector variables --Defaults
 $scope.selectedKey = 'C';
@@ -12,6 +11,13 @@ $scope.capoPositions = ['0','1','2', '3', '4', '5', '6', '7', '8', '9', '10', '1
 ///data retrieval variables
 $scope.dataFactory = DataFactory;
 $scope.allOpenKeys = [];
+
+/////transposing logic variables
+$scope.allNotes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
+$scope.capoPosition = '0';
+var smallArray = [];
+$scope.chords = [{},{},{},{},{},{},{}];
+$scope.newKey = [];
 
 if ($scope.dataFactory.retrieveAllOpenKeys() === undefined) {
     // initial load
@@ -26,12 +32,7 @@ if ($scope.dataFactory.retrieveAllOpenKeys() === undefined) {
           initializeC();
     }
 
-/////transposing logic variables
-$scope.allNotes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
-$scope.capoPosition = '0';
-var smallArray = [];
-$scope.chords = [{},{},{},{},{},{},{}];
-$scope.newKey = [];
+
 
 
 $scope.getChords = function (selectedKey, allOpenKeys) {
@@ -67,6 +68,7 @@ function createCharts(key) {
 ///Begin Transposing logic
 console.log('transposer');
 function transpose(keyArray, capoPosition, initialChordsObject) {
+  console.log(smallArray);
   console.log('transpose function running');
   var newIndex = 0;
 
@@ -100,19 +102,26 @@ function addSuffix(key) {
 }
 //////
 
-function createSmallArray (keyArray) {
 
+
+function initializeC () {
+  console.log($scope.allNotes);
+  createCharts($scope.allOpenKeys[2]);
+    createSmallArray($scope.allOpenKeys[2]);
+    console.log(smallArray);
+    $scope.newKey = addSuffix(transpose(smallArray, '0', $scope.chords));
+    console.log($scope.newKey);
+
+}
+
+function createSmallArray (keyArray) {
+  smallArray = [];
+console.log(smallArray);
   for (var i = 0; i < keyArray.length; i++) {
     smallArray.push(keyArray[i].chord_name);
   }
-}
-
-function initializeC () {
-  createCharts($scope.allOpenKeys[2]);
-    createSmallArray($scope.allOpenKeys[2]);
-    $scope.newKey = addSuffix(transpose(smallArray, '0', $scope.chords));
-    console.log($scope.newKey);
-    smallArray = [];
+  console.log(smallArray);
+  return smallArray;
 }
 
 }]);

@@ -1,3 +1,5 @@
-svg.chordChart .grid{ stroke: black; stroke-width: 2;}
-svg.chordChart .labels{ fill: white;}
+svg.chordChart .grid{ stroke: $white; stroke-width: .15rem;}
+svg.chordChart .labels{ fill: $white;}
 svg.chordChart .dots{ stroke: none; fill: $green;}
+svg.chordChart .text{ fill: $white;}
+svg.chordChart .nut{ fill: $light-gray;}

@@ -2,10 +2,14 @@
   cursor: pointer; }
 
 body {
-  background: #eee;
+  background: url("../../images/guitar-1.jpeg"), no-repeat center center, #222;
+  background-blend-mode: soft-light;
+  background-size: cover;
   font-size: 1.5rem;
+  letter-spacing: .01em;
   text-align: center;
-  font-family: "Verdana", sans-serif; }
+  font-family: "Verdana", sans-serif;
+  color: #fff; }
 
 .clearfix {
   overflow: contain; }
@@ -27,7 +31,7 @@ body {
 .chord-card {
   flex: 1;
   height: 100%;
-  padding: 0 1rem;
+  padding: 0 .5rem;
   display: inline; }
 
 .chord {
@@ -37,21 +41,42 @@ body {
   margin: 0 auto; }
 
 h4 {
-  margin: .5em 1em;
-  font-size: 1.5em; }
+  padding: .5em 1em;
+  font-size: 1.5em;
+  margin-bottom: 0; }
 
-.test {
-  width: 400px;
-  height: 400px;
-  background: #ddd; }
+.transposed {
+  background: #222;
+  color: #16d09e; }
+
+.numeral {
+  width: 90%;
+  margin: 0 auto; }
+
+.major {
+  border-bottom: 0.15em solid #770320; }
+
+.minor {
+  border-bottom: 0.15em solid #16d09e; }
+
+.seventh {
+  border-bottom: 0.15em solid #cb9af9; }
 
 header {
   background-color: #222;
-  color: #fff; }
+  color: #fff;
+  margin: 0 0 5vh 0;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: .05em; }
+
+ul {
+  margin: 0;
+  text-align: left; }
 
 li {
   display: inline-block;
-  padding: .6em;
+  padding: 0.6em 1em;
   height: 100%; }
   li:hover {
     background-color: #16d09e; }
@@ -59,6 +84,9 @@ li {
 a {
   color: #fff;
   text-decoration: none; }
+  a:hover {
+    color: #fff;
+    text-decoration: none; }
 
 #slides_control > div {
   height: 200px; }
@@ -82,14 +110,20 @@ img {
   display: none; }
 
 svg.chordChart .grid {
-  stroke: black;
-  stroke-width: 2; }
+  stroke: #fff;
+  stroke-width: .15rem; }
 
 svg.chordChart .labels {
-  fill: white; }
+  fill: #fff; }
 
 svg.chordChart .dots {
   stroke: none;
   fill: #16d09e; }
+
+svg.chordChart .text {
+  fill: #fff; }
+
+svg.chordChart .nut {
+  fill: #ddd; }
 
 /*# sourceMappingURL=index.css.map */
