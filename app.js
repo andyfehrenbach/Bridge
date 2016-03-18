@@ -10,7 +10,7 @@ var user = process.env.dbuser;
 var password = process.env.dbpass;
 
 //mongoose connect
-mongoose.connect('mongodb://user:password@ds015899.mlab.com:15899/bridge_app');
+mongoose.connect('mongodb://' + user + ':' 'password@ds015899.mlab.com:15899/bridge_app');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
