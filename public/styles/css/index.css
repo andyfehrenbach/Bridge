@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'League Gothic';
+  src: url("../../fonts/league/leaguegothic-regular-webfont.eot");
+  src: url("../../fonts/league/leaguegothic-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/league/leaguegothic-regular-webfont.woff") format("woff"), url("../../fonts/league/leaguegothic-regular-webfont.ttf") format("truetype"), url("../../fonts/league/leaguegothic-regular-webfont.svg#league_gothicregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
 
@@ -8,7 +14,7 @@ body {
   font-size: 1.5rem;
   letter-spacing: .01em;
   text-align: center;
-  font-family: "Verdana", sans-serif;
+  font-family: "Lato", "Tahoma", sans-serif;
   color: #fff;
   -webkit-font-smoothing: antialiased; }
 
@@ -23,26 +29,50 @@ body {
 
 .selector {
   flex: 1;
-  height: 100%;
+  height: 5rem;
   margin: 3rem; }
 
-form, label, select, option {
+form, label, select {
+  font-family: "League Gothic", serif;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 400; }
 
 .form-group {
-  padding: .7em 0 .5em 1em;
-  background: #222; }
+  padding: .4em .8em .2em .8em;
+  background: #222;
+  height: 100%;
+  margin: 0 .5em; }
 
 .form-control {
+  font-size: 2rem;
   letter-spacing: .04em;
   background-color: transparent;
-  font-size: 2rem;
-  border: none; }
+  border: none;
+  color: #16d09e;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  height: 100%; }
+  .form-control:focus {
+    border: none;
+    box-shadow: none; }
+
+label {
+  margin: 0;
+  padding: 0; }
+
+.info {
+  letter-spacing: .05em;
+  width: 90vw;
+  margin: 1em auto .25em auto;
+  padding: .25em; }
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 0.9; }
 
 .chords {
-  margin: 4rem 0 0 0; }
+  margin: 2.5rem 0 0 0; }
 
 .chord-card {
   flex: 1;
@@ -58,13 +88,14 @@ form, label, select, option {
 
 h4 {
   padding: .5em 1em;
-  font-size: 1.5em;
+  font-size: 2.5rem;
   margin-bottom: 0; }
 
 .transposed {
   background: #222;
   color: #16d09e;
-  background-blend-mode: multiply; }
+  background-blend-mode: multiply;
+  padding: .4em .5em; }
 
 .numeral {
   width: 90%;
@@ -79,11 +110,21 @@ h4 {
 .seventh {
   border-bottom: 0.15em solid #cb9af9; }
 
+.r {
+  color: #770320; }
+
+.g {
+  color: #16d09e; }
+
+.l {
+  color: #cb9af9; }
+
 header {
+  font-family: "League Gothic", serif;
   background-color: #222;
   color: #fff;
   margin: 0 0 5vh 0;
-  font-size: 2rem;
+  font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: .05em;
   background-blend-mode: multiply; }
@@ -94,9 +135,9 @@ ul {
 
 li {
   display: inline-block;
-  padding: 0.6em 1em;
+  padding: 0.25em .5em;
   height: 100%;
-  margin: 0;
+  margin: 0 0 0 -0.2em;
   -webkit-transition: 0.2s;
   -moz-transition: 0.2s;
   transition: 0.2s; }

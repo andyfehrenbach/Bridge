@@ -2,14 +2,16 @@
 
 
   <form class="form-inline chord-form">
-    <label for="open-keys"> Choose an Open Key</label>
-    <select name="open-keys" class="form-control" ng-model="selectedKey" ng-options="key for key in openKeys" ng-change="getChords(selectedKey, allOpenKeys)">
-      <option value=""></option>
-    </select>
-    <label for="capo-position"> Choose a Capo Position </label>
-    <select name="capo-position" class="form-control" ng-model="capoPosition" ng-options="capoPosition for capoPosition in capoPositions" ng-change="getChords(selectedKey, allOpenKeys)">
-      <option value=""></option>
-    </select>
+    <div class="form-group">
+      <label for="open-keys"> Choose an Open Key:</label>
+      <select name="open-keys" class="form-control" ng-model="selectedKey" ng-options="key for key in openKeys" ng-change="getChords(selectedKey, allOpenKeys)">
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="capo-position"> Choose a Capo Position: </label>
+      <select name="capo-position" class="form-control" ng-model="capoPosition" ng-options="capoPosition for capoPosition in capoPositions" ng-change="getChords(selectedKey, allOpenKeys)">
+      </select>
+    </div>
   </form>
 
   <!--  -->

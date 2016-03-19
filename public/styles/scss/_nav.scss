@@ -1,12 +1,13 @@
 
 
 header {
+  font-family: $league;
   background-color: $black;
   // @include linear-gradient(left, $black, $green);
   color: $white;
   // border-bottom: .25em solid $white;
   margin: 0 0 5vh 0;
-  font-size: 2rem;
+  font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: .05em;
   background-blend-mode: multiply;
@@ -17,9 +18,9 @@ ul {
 }
   li {
     display: inline-block;
-    padding: 0.6em 1em;
+    padding: 0.25em .5em;
     height: 100%;
-    margin: 0;
+    margin: 0 0 0 -0.2em;
     @include transition(.2s);
 
     &:hover {

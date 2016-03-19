@@ -3,6 +3,9 @@
 //thing necessary for bootstrap UI
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 //
+// div, ul, li, a, label, select, form {
+//   border: 1px solid $red;
+// }
 
 body {
   background: url("../../images/guitar-1.jpeg"), no-repeat center center, $black;
@@ -31,30 +34,63 @@ body {
   .selector {
     flex: 1;
     // background-color: grey;
-    height: 100%;
+    height: 5rem;
     margin: 3rem;
+
   }
 
-form, label, select, option {
+form, label, select {
+  font-family: $league;
   text-transform: uppercase;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 400;
 }
   .form-group {
-    padding: .7em 0 .5em 1em;
+    padding: .4em .8em .2em .8em;
     background: $black;
+    height: 100%;
+    margin: 0 .5em;
   }
 .form-control {
+    font-size: 2rem;
     letter-spacing: .04em;
     background-color: transparent;
-    font-size: 2rem;
     border: none;
+    color: $green;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    // margin-bottom: .25em;
+    height: 100%;
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+
+
 
   }
+
+  label {
+    margin: 0;
+    padding: 0;
+
+  }
+
+.info {
+  letter-spacing: .05em;
+  width: 90vw;
+  margin: 1em auto .25em auto;
+  padding: .25em;
+}
+h1 {
+  font-size: 4.5rem;
+  line-height: 0.9;
+}
 //
 .chords {
   // background-color: $black;
-  margin: 4rem 0 0 0;
+  margin: 2.5rem 0 0 0;
 }
   .chord-card {
     flex: 1;
@@ -72,13 +108,14 @@ form, label, select, option {
 
     h4{
       padding: .5em 1em;
-      font-size: 1.5em;
+      font-size: 2.5rem;
       margin-bottom: 0;
     }
       .transposed {
         background: $black;
         color: $green;
         background-blend-mode: multiply;
+        padding: .4em .5em;
       }
       .numeral {
         width: 90%;
@@ -94,4 +131,16 @@ form, label, select, option {
 }
 .seventh {
   border-bottom: .15em solid $purple;
+}
+
+.r {
+  color: $red;
+}
+
+.g {
+  color: $green;
+}
+
+.l {
+  color: $purple;
 }
