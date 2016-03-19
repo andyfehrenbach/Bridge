@@ -34,6 +34,23 @@ body {
     height: 100%;
     margin: 3rem;
   }
+
+form, label, select, option {
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 400;
+}
+  .form-group {
+    padding: .7em 0 .5em 1em;
+    background: $black;
+  }
+.form-control {
+    letter-spacing: .04em;
+    background-color: transparent;
+    font-size: 2rem;
+    border: none;
+
+  }
 //
 .chords {
   // background-color: $black;
@@ -61,6 +78,7 @@ body {
       .transposed {
         background: $black;
         color: $green;
+        background-blend-mode: multiply;
       }
       .numeral {
         width: 90%;

@@ -2,12 +2,14 @@
 
 header {
   background-color: $black;
+  // @include linear-gradient(left, $black, $green);
   color: $white;
   // border-bottom: .25em solid $white;
   margin: 0 0 5vh 0;
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: .05em;
+  background-blend-mode: multiply;
 }
 ul {
   margin: 0;
@@ -17,6 +19,8 @@ ul {
     display: inline-block;
     padding: 0.6em 1em;
     height: 100%;
+    margin: 0;
+    @include transition(.2s);
 
     &:hover {
       background-color: $green;

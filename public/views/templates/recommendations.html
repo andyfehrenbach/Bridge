@@ -1,11 +1,15 @@
 <div class="selectors">
   <form class="form-inline chord-form">
-    <label for="selectedAllKey">Choose a Key</label>
-    <select name="selectedAllKey" class="form-control" ng-model="selectedAllKey" ng-options="key.Key for key in allKeys" ng-change="getRecommendation(selectedAllKey, recommendation)">
-    </select>
-    <label for="recommendation">Choose a Recommendation</label>
-    <select class="form-control" ng-model="recommendation" ng-options="recommendation for recommendation in recommendations" ng-change="getRecommendation(selectedAllKey,recommendation)">
-    </select>
+    <div class="form-group">
+      <label for="selectedAllKey">Choose a Key</label>
+      <select name="selectedAllKey" class="form-control" ng-model="selectedAllKey" ng-options="key.Key for key in allKeys" ng-change="getRecommendation(selectedAllKey, recommendation)">
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="recommendation">Choose a Recommendation</label>
+      <select class="form-control" ng-model="recommendation" ng-options="recommendation for recommendation in recommendations" ng-change="getRecommendation(selectedAllKey,recommendation)">
+      </select>
+    </div>
   </form>
 
   <!--  -->
@@ -13,7 +17,7 @@
 </div>
 <h1>To play in {{selectedAllKey.Key}}, use the open chords in {{selectedKey}} with the capo on {{capo}}. </h1>
 
-<div class="row chords" >
+<div class="row chords">
   <div class="chord-card clearfix">
     <h4 class="numeral major"> I </h4>
     <svg class="chord" id="1"></svg>
