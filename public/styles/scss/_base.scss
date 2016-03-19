@@ -39,7 +39,7 @@ body {
 
   }
 
-form, label, select {
+form, label {
   font-family: $league;
   text-transform: uppercase;
   font-size: 3rem;
@@ -52,7 +52,7 @@ form, label, select {
     margin: 0 .5em;
   }
 .form-control {
-    font-size: 2rem;
+    font-size: 2.5rem;
     letter-spacing: .04em;
     background-color: transparent;
     border: none;

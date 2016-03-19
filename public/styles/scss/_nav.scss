@@ -12,6 +12,28 @@ header {
   letter-spacing: .05em;
   background-blend-mode: multiply;
 }
+.logo:hover {
+  background-color: $black;
+  color: $red;
+}
+.full:hover{
+  @include transition(.1s);
+  color: $red;
+}
+
+a .logo-i {
+  @include transition(.05s);
+  letter-spacing: 0;
+  &:first-child {
+  margin-left: -.1em;
+  }
+  &:last-child {
+    margin-right: .2em;
+  }
+  &:hover{
+    color: $green;
+  }
+}
 ul {
   margin: 0;
   text-align: left;
@@ -28,6 +50,7 @@ ul {
     }
 
   }
+
     a {
     color: $white;
     text-decoration: none;

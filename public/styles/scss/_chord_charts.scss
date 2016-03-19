@@ -3,3 +3,7 @@ svg.chordChart .labels{ fill: $white;}
 svg.chordChart .dots{ stroke: none; fill: $green;}
 svg.chordChart .text{ fill: $white;}
 svg.chordChart .nut{ fill: $light-gray;}
+
+svg {
+  width: 95%;
+}

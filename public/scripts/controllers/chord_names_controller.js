@@ -5,7 +5,7 @@ myApp.controller('Chord_namesController', ['$scope', '$http', 'DataFactory', fun
 // selector variables --Defaults
 $scope.selectedKey = 'C';
 $scope.openKeys = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-$scope.capoPositions = ['0','1','2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+$scope.capoPositions = ['0','1','2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
 
 
 ///data retrieval variables

@@ -32,7 +32,7 @@ body {
   height: 5rem;
   margin: 3rem; }
 
-form, label, select {
+form, label {
   font-family: "League Gothic", serif;
   text-transform: uppercase;
   font-size: 3rem;
@@ -45,7 +45,7 @@ form, label, select {
   margin: 0 .5em; }
 
 .form-control {
-  font-size: 2rem;
+  font-size: 2.5rem;
   letter-spacing: .04em;
   background-color: transparent;
   border: none;
@@ -129,6 +129,28 @@ header {
   letter-spacing: .05em;
   background-blend-mode: multiply; }
 
+.logo:hover {
+  background-color: #222;
+  color: #770320; }
+
+.full:hover {
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  transition: 0.1s;
+  color: #770320; }
+
+a .logo-i {
+  -webkit-transition: 0.05s;
+  -moz-transition: 0.05s;
+  transition: 0.05s;
+  letter-spacing: 0; }
+  a .logo-i:first-child {
+    margin-left: -.1em; }
+  a .logo-i:last-child {
+    margin-right: .2em; }
+  a .logo-i:hover {
+    color: #16d09e; }
+
 ul {
   margin: 0;
   text-align: left; }
@@ -170,5 +192,8 @@ svg.chordChart .text {
 
 svg.chordChart .nut {
   fill: #ddd; }
+
+svg {
+  width: 95%; }
 
 /*# sourceMappingURL=index.css.map */
