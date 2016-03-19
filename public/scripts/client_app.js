@@ -3,6 +3,10 @@ var myApp = angular.module('myApp', ['ngRoute', 'ui.bootstrap']);
 myApp.config(['$routeProvider', function($routeProvider) {
 
     $routeProvider
+        .when('/home', {
+            templateUrl: '/views/templates/home.html',
+        })
+
         .when('/chord_names', {
             templateUrl: '/views/templates/chord_names.html',
             controller: 'Chord_namesController'
@@ -15,6 +19,6 @@ myApp.config(['$routeProvider', function($routeProvider) {
         })
 
         .otherwise({
-            redirectTo: 'chord_names'
+            redirectTo: 'home'
         });
 }]);
