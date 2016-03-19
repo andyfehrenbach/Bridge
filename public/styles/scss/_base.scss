@@ -14,7 +14,7 @@ body {
   text-align: center;
   font-family: $primary;
   color: $white;
-
+  -webkit-font-smoothing: antialiased;
 }
 
 .clearfix {

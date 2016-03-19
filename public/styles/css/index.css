@@ -9,7 +9,8 @@ body {
   letter-spacing: .01em;
   text-align: center;
   font-family: "Verdana", sans-serif;
-  color: #fff; }
+  color: #fff;
+  -webkit-font-smoothing: antialiased; }
 
 .clearfix {
   overflow: contain; }
@@ -87,27 +88,9 @@ a {
   a:hover {
     color: #fff;
     text-decoration: none; }
-
-#slides_control > div {
-  height: 200px; }
-
-img {
-  margin: auto;
-  width: 400px; }
-
-#slides_control {
-  position: absolute;
-  width: 400px;
-  left: 50%;
-  top: 20px;
-  margin-left: -200px; }
-
-.carousel-control {
-  background: none;
-  background-color: #222; }
-
-.carousel-indicators li {
-  display: none; }
+  a:active, a:focus {
+    color: #16d09e;
+    text-decoration: none; }
 
 svg.chordChart .grid {
   stroke: #fff;

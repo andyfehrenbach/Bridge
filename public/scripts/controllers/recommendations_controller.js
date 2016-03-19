@@ -1,6 +1,6 @@
 myApp.controller('RecommendationsController', ['$scope', '$http', 'DataFactory', function($scope, $http, DataFactory) {
-$scope.selectedAllKey = 'A';
-$scope.fret = '0';
+$scope.capo = '0';
+$scope.selectedKey = 'C';
 var smallArray = [];
 $scope.allKeys = [
   {Key: 'A',
@@ -72,6 +72,8 @@ $scope.allKeys = [
 ];
   $scope.allNotes = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']; //12
   $scope.recommendations = ['First', 'Second', 'Third', 'Fourth'];
+  $scope.recommendation = $scope.recommendations[0];
+  $scope.selectedAllKey = $scope.allKeys[3];
   $scope.dataFactory = DataFactory;
   $scope.allOpenKeys = [];
   $scope.chords = [{},{},{},{},{},{},{}];
@@ -84,12 +86,12 @@ $scope.allKeys = [
       $scope.dataFactory.factoryGetAllChords().then(function() {
           $scope.allOpenKeys = $scope.dataFactory.retrieveAllOpenKeys();
           // console.log('if clause', $scope.allOpenKeys);
-            // initializeC();
+             recommendC();
           });
       } else {
           $scope.allOpenKeys = $scope.dataFactory.retrieveAllOpenKeys();
           console.log('else clause', $scope.allOpenKeys);
-            // initializeC();
+              recommendC();
       }
 
 
@@ -97,7 +99,7 @@ $scope.allKeys = [
     console.log($scope.newKey);
     var currentSelection;
     var currentRecommendation;
-    var selectedKey;
+    // $scope.selectedKey = 'C';
     transposedArray = [];
     for (var i = 0; i < $scope.allKeys.length; i++) {
       if ($scope.allKeys[i].Key == selectedAllKey.Key) {
@@ -119,10 +121,6 @@ $scope.allKeys = [
             if ($scope.allOpenKeys[k][0].chord_name == $scope.selectedKey){
               createCharts($scope.allOpenKeys[k]);
               createSmallArray($scope.allOpenKeys[k]);
-              // console.log(smallArray);
-              // console.log('capo position', $scope.capo);
-              // console.log('just note names', smallArray);
-              // console.log('transposed chords', $scope.chords)
 
               $scope.newKey = addSuffix(transpose(smallArray, $scope.capo, $scope.chords));
               // console.log('new key array', $scope.newKey);
@@ -172,7 +170,7 @@ $scope.allKeys = [
         initialChordsObject[i].transposedChord = transposedArray[i];
         // console.log(initialChordsObject[i].transposedChord);
       }
-      // console.log('transposed array', transposedArray);
+      console.log('transposed array', transposedArray);
 
     return transposedArray;
   }
@@ -191,6 +189,17 @@ $scope.allKeys = [
     key[5] += 'm';
     key[6] += '7';
     return key;
+  }
+
+  function recommendC() {
+    createCharts($scope.allOpenKeys[2]);
+    createSmallArray($scope.allOpenKeys[2]);
+console.log(smallArray);
+
+    $scope.newKey = addSuffix(transpose(smallArray, 0, $scope.chords));
+    console.log('new key array', $scope.newKey);
+    smallArray =[];
+
   }
 
 

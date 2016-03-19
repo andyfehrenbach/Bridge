@@ -27,8 +27,13 @@ ul {
     color: $white;
     text-decoration: none;
 
-    &:hover{
+    &:hover {
       color: $white;
       text-decoration: none;
+    }
+    &:active, &:focus {
+      color: $green;
+      text-decoration: none;
+
     }
   }
