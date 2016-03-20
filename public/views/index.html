@@ -27,20 +27,21 @@
 
 <body ng-app="myApp">
 
-  <header>
+  <!-- <div class="background"> -->
+    <header>
+      <nav>
+        <ul>
+          <li class="logo"><a href="#home"><span class="full">Br <span class="logo-i">|</span> <span class="logo-i">|</span> <span class="logo-i">|</span> <span class="logo-i">|</span> <span class="logo-i">|</span> <span class="logo-i">|</span>dge</span></a></li>
+          <li><a href="#chord_names">Chord Names</a></li>
+          <li><a href="#recommendations">Recommendations</a></li>
+        </ul>
+      </nav>
+    </header>
 
-    <nav>
-      <ul>
-        <li class="logo"><a href="#chord_names"><span class="full">Br <span class="logo-i">|</span> <span class="logo-i">|</span> <span class="logo-i">|</span> <span class="logo-i">|</span> <span class="logo-i">|</span> <span class="logo-i">|</span>dge</span></a></li>
-        <li><a href="#chord_names">Chord Names</a></li>
-        <li><a href="#recommendations">Recommendations</a></li>
-      </ul>
-    </nav>
-  </header>
+    <main ng-view="main">
 
-  <main ng-view="main">
-
-  </main>
+    </main>
+  <!-- </div> -->
 </body>
 
 </html>

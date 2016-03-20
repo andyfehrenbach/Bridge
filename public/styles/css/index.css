@@ -8,15 +8,21 @@
   cursor: pointer; }
 
 body {
-  background: url("../../images/guitar-1.jpeg"), no-repeat center center, #222;
-  background-blend-mode: soft-light;
-  background-size: cover;
   font-size: 1.5rem;
   letter-spacing: .01em;
   text-align: center;
   font-family: "Lato", "Tahoma", sans-serif;
   color: #fff;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  height: 100vh; }
+
+.background {
+  background: url("../../images/guitar-1.jpeg"), no-repeat center center, #222;
+  background-blend-mode: soft-light;
+  background-size: cover;
+  position: fixed;
+  height: 100vh;
+  z-index: 1; }
 
 .clearfix {
   overflow: contain; }
@@ -123,11 +129,14 @@ header {
   font-family: "League Gothic", serif;
   background-color: #222;
   color: #fff;
-  margin: 0 0 5vh 0;
   font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: .05em;
-  background-blend-mode: multiply; }
+  width: 100vw;
+  background-blend-mode: multiply;
+  position: fixed;
+  top: 0;
+  z-index: 100; }
 
 .logo:hover {
   background-color: #222;
@@ -175,6 +184,36 @@ a {
   a:active, a:focus {
     color: #16d09e;
     text-decoration: none; }
+
+.home-background {
+  background: url("../../images/guitar-1.jpeg"), no-repeat center center, #222;
+  background-blend-mode: soft-light;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  z-index: 1;
+  width: 100%; }
+
+.home-hero {
+  font-family: "League Gothic", serif;
+  text-transform: uppercase;
+  height: 40vh;
+  position: relative;
+  margin-top: 100vh;
+  z-index: 10;
+  background-color: #fff;
+  color: #222;
+  width: 100%; }
+  .home-hero h1 {
+    padding: 0 10%;
+    font-size: 5.5rem;
+    line-height: .9; }
+
+#one {
+  margin: 43vh 0 17vh 0;
+  background-color: transparent;
+  color: #fff; }
 
 svg.chordChart .grid {
   stroke: #fff;

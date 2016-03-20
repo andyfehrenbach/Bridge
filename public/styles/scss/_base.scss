@@ -8,16 +8,23 @@
 // }
 
 body {
-  background: url("../../images/guitar-1.jpeg"), no-repeat center center, $black;
-  background-blend-mode: soft-light;
-  background-size: cover;
-  // background: $black;
+
   font-size: 1.5rem;
   letter-spacing: .01em;
   text-align: center;
   font-family: $primary;
   color: $white;
   -webkit-font-smoothing: antialiased;
+  height: 100vh;
+}
+
+.background {
+  background: url("../../images/guitar-1.jpeg"), no-repeat center center, $black;
+  background-blend-mode: soft-light;
+  background-size: cover;
+  position: fixed;
+  height: 100vh;
+  z-index: 1;
 }
 
 .clearfix {

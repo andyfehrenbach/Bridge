@@ -6,12 +6,16 @@ header {
   // @include linear-gradient(left, $black, $green);
   color: $white;
   // border-bottom: .25em solid $white;
-  margin: 0 0 5vh 0;
   font-size: 3rem;
   text-transform: uppercase;
   letter-spacing: .05em;
+  width: 100vw;
   background-blend-mode: multiply;
+  position: fixed;
+  top: 0;
+  z-index: 100;
 }
+
 .logo:hover {
   background-color: $black;
   color: $red;
