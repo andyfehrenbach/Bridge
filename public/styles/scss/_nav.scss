@@ -2,7 +2,7 @@
 
 header {
   font-family: $league;
-  background-color: $black;
+  background-color: #000;
   // @include linear-gradient(left, $black, $green);
   color: $white;
   // border-bottom: .25em solid $white;
@@ -14,10 +14,11 @@ header {
   position: fixed;
   top: 0;
   z-index: 100;
+  opacity: .9;
 }
 
 .logo:hover {
-  background-color: $black;
+  background-color: #000;
   color: $red;
 }
 .full:hover{
@@ -51,6 +52,9 @@ ul {
 
     &:hover {
       background-color: $green;
+    }
+    &:last-child:hover{
+      background-color: $red;
     }
 
   }

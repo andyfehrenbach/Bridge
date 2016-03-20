@@ -13,16 +13,7 @@ body {
   text-align: center;
   font-family: "Lato", "Tahoma", sans-serif;
   color: #fff;
-  -webkit-font-smoothing: antialiased;
-  height: 100vh; }
-
-.background {
-  background: url("../../images/guitar-1.jpeg"), no-repeat center center, #222;
-  background-blend-mode: soft-light;
-  background-size: cover;
-  position: fixed;
-  height: 100vh;
-  z-index: 1; }
+  -webkit-font-smoothing: antialiased; }
 
 .clearfix {
   overflow: contain; }
@@ -31,33 +22,39 @@ body {
   font-size: 14rem; }
 
 .row {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex; }
 
-.selector {
-  flex: 1;
-  height: 5rem;
-  margin: 3rem; }
+.selectors {
+  margin-top: 8%; }
 
 form, label {
   font-family: "League Gothic", serif;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 400; }
 
 .form-group {
   padding: .4em .8em .2em .8em;
-  background: #222;
+  background: #111;
   height: 100%;
   margin: 0 .5em; }
 
 .form-control {
+  font-family: "Lato", "Tahoma", sans-serif;
   font-size: 2.5rem;
   letter-spacing: .04em;
   background-color: transparent;
   border: none;
-  color: #16d09e;
+  color: #14d2a9;
   box-shadow: none;
   -webkit-box-shadow: none;
+  margin-bottom: .25em;
   height: 100%; }
   .form-control:focus {
     border: none;
@@ -70,17 +67,25 @@ label {
 .info {
   letter-spacing: .05em;
   width: 90vw;
-  margin: 1em auto .25em auto;
+  margin: 1em auto 0 auto;
   padding: .25em; }
+  .info h1 {
+    font-weight: 300; }
 
 h1 {
   font-size: 4.5rem;
-  line-height: 0.9; }
+  line-height: 1.2; }
 
 .chords {
-  margin: 2.5rem 0 0 0; }
+  margin: 3% 2.5vw; }
 
 .chord-card {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   height: 100%;
   padding: 0 .5rem;
@@ -98,8 +103,8 @@ h4 {
   margin-bottom: 0; }
 
 .transposed {
-  background: #222;
-  color: #16d09e;
+  background: #111;
+  color: #14d2a9;
   background-blend-mode: multiply;
   padding: .4em .5em; }
 
@@ -111,7 +116,7 @@ h4 {
   border-bottom: 0.15em solid #770320; }
 
 .minor {
-  border-bottom: 0.15em solid #16d09e; }
+  border-bottom: 0.15em solid #14d2a9; }
 
 .seventh {
   border-bottom: 0.15em solid #cb9af9; }
@@ -120,14 +125,14 @@ h4 {
   color: #770320; }
 
 .g {
-  color: #16d09e; }
+  color: #14d2a9; }
 
 .l {
   color: #cb9af9; }
 
 header {
   font-family: "League Gothic", serif;
-  background-color: #222;
+  background-color: #000;
   color: #fff;
   font-size: 3rem;
   text-transform: uppercase;
@@ -136,10 +141,11 @@ header {
   background-blend-mode: multiply;
   position: fixed;
   top: 0;
-  z-index: 100; }
+  z-index: 100;
+  opacity: .9; }
 
 .logo:hover {
-  background-color: #222;
+  background-color: #000;
   color: #770320; }
 
 .full:hover {
@@ -158,7 +164,7 @@ a .logo-i {
   a .logo-i:last-child {
     margin-right: .2em; }
   a .logo-i:hover {
-    color: #16d09e; }
+    color: #14d2a9; }
 
 ul {
   margin: 0;
@@ -173,7 +179,9 @@ li {
   -moz-transition: 0.2s;
   transition: 0.2s; }
   li:hover {
-    background-color: #16d09e; }
+    background-color: #14d2a9; }
+  li:last-child:hover {
+    background-color: #770320; }
 
 a {
   color: #fff;
@@ -182,13 +190,15 @@ a {
     color: #fff;
     text-decoration: none; }
   a:active, a:focus {
-    color: #16d09e;
+    color: #14d2a9;
     text-decoration: none; }
 
 .home-background {
   background: url("../../images/guitar-1.jpeg"), no-repeat center center, #222;
   background-blend-mode: soft-light;
   background-size: cover;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
   position: fixed;
   top: 0;
   height: 100%;
@@ -198,22 +208,65 @@ a {
 .home-hero {
   font-family: "League Gothic", serif;
   text-transform: uppercase;
-  height: 40vh;
   position: relative;
-  margin-top: 100vh;
   z-index: 10;
-  background-color: #fff;
-  color: #222;
+  color: #fff;
   width: 100%; }
   .home-hero h1 {
     padding: 0 10%;
     font-size: 5.5rem;
-    line-height: .9; }
+    line-height: .9;
+    position: absolute;
+    top: 40vh; }
 
 #one {
-  margin: 43vh 0 17vh 0;
+  height: 100vh;
   background-color: transparent;
   color: #fff; }
+  #one h1 {
+    padding: 0 20%; }
+
+#two {
+  background: #222;
+  mix-blend-mode: screen;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  color: #14d2a9; }
+  #two h1 {
+    top: 35vh; }
+
+#three {
+  background: url("../../images/guitar-2.jpg"), no-repeat center center, #222;
+  background-blend-mode: multiply;
+  mix-blend-mode: screen;
+  background-size: cover;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  height: 100vh;
+  margin: 0;
+  padding: 0; }
+
+.three {
+  font-family: "League Gothic", serif;
+  text-transform: uppercase;
+  position: relative;
+  padding: 0 10%;
+  font-size: 5.5rem;
+  line-height: .9;
+  bottom: 100vh;
+  z-index: 10;
+  height: 100vh;
+  margin-top: 0;
+  padding-top: 36vh; }
+  .three a {
+    -webkit-transition: 0.15s;
+    -moz-transition: 0.15s;
+    transition: 0.15s; }
+  .three .link-1:hover {
+    color: #770320; }
+  .three .link-2:hover {
+    color: #14d2a9; }
 
 svg.chordChart .grid {
   stroke: #fff;
@@ -224,7 +277,7 @@ svg.chordChart .labels {
 
 svg.chordChart .dots {
   stroke: none;
-  fill: #16d09e; }
+  fill: #14d2a9; }
 
 svg.chordChart .text {
   fill: #fff; }
@@ -234,5 +287,39 @@ svg.chordChart .nut {
 
 svg {
   width: 95%; }
+
+.background-one {
+  background: url("../../images/guitar-1.jpeg"), no-repeat center center, #222;
+  background-blend-mode: soft-light;
+  background-size: cover;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1; }
+
+.content {
+  position: relative;
+  z-index: 5;
+  margin-top: 0; }
+
+.background-two {
+  background: url("../../images/guitar-2.jpg") no-repeat center center, #111;
+  background-blend-mode: soft-light;
+  background-size: cover;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1; }
+
+.content {
+  position: relative;
+  z-index: 5;
+  margin-top: 0; }
 
 /*# sourceMappingURL=index.css.map */

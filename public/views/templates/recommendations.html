@@ -1,63 +1,67 @@
-<div class="selectors">
-  <form class="form-inline chord-form">
-    <div class="form-group">
-      <label for="selectedAllKey">Choose a Key:</label>
-      <select name="selectedAllKey" class="form-control" ng-model="selectedAllKey" ng-options="key.Key for key in allKeys" ng-change="getRecommendation(selectedAllKey, recommendation)">
-      </select>
+<div class="background-one"> </div>
+
+<div class="content">
+  <div class="selectors">
+    <form class="form-inline chord-form">
+      <div class="form-group">
+        <label for="selectedAllKey">Choose a Key:</label>
+        <select name="selectedAllKey" class="form-control" ng-model="selectedAllKey" ng-options="key.Key for key in allKeys" ng-change="getRecommendation(selectedAllKey, recommendation)">
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="recommendation">Choose a Recommendation:</label>
+        <select class="form-control" ng-model="recommendation" ng-options="recommendation for recommendation in recommendations" ng-change="getRecommendation(selectedAllKey,recommendation)">
+        </select>
+      </div>
+    </form>
+
+    <!--  -->
+
+  </div>
+  <div class="info">
+    <h1>To play in <span class="">{{selectedAllKey.Key}}</span>, use the open chords in <span class="">{{selectedKey}}</span><br> with the capo on fret <span class="">{{capo}}</span>. </h1>
+  </div>
+  <div class="row chords">
+    <div class="chord-card clearfix">
+      <h4 class="numeral major"> I </h4>
+      <svg class="chord" id="1"></svg>
+      <h4 class="transposed"> {{newKey[0]}} </h4>
     </div>
-    <div class="form-group">
-      <label for="recommendation">Choose a Recommendation:</label>
-      <select class="form-control" ng-model="recommendation" ng-options="recommendation for recommendation in recommendations" ng-change="getRecommendation(selectedAllKey,recommendation)">
-      </select>
+
+    <div class="chord-card clearfix">
+      <h4 class="numeral minor"> II </h4>
+      <svg class="chord" id="2"></svg>
+      <h4 class="transposed"> {{newKey[1]}} </h4>
     </div>
-  </form>
 
-  <!--  -->
+    <div class="chord-card clearfix">
+      <h4 class="numeral minor"> III </h4>
+      <svg class="chord" id="3"></svg>
+      <h4 class="transposed"> {{newKey[2]}} </h4>
+    </div>
 
-</div>
-<div class="info">
-  <h1>To play in <span class="">{{selectedAllKey.Key}}</span>, use the open chords in <span class="">{{selectedKey}}</span> with the capo on <span class="">{{capo}}</span>. </h1>
-</div>
-<div class="row chords">
-  <div class="chord-card clearfix">
-    <h4 class="numeral major"> I </h4>
-    <svg class="chord" id="1"></svg>
-    <h4 class="transposed"> {{newKey[0]}} </h4>
-  </div>
+    <div class="chord-card clearfix">
+      <h4 class="numeral major"> IV </h4>
+      <svg class="chord" id="4"></svg>
+      <h4 class="transposed"> {{newKey[3]}} </h4>
+    </div>
 
-  <div class="chord-card clearfix">
-    <h4 class="numeral minor"> II </h4>
-    <svg class="chord" id="2"></svg>
-    <h4 class="transposed"> {{newKey[1]}} </h4>
-  </div>
+    <div class="chord-card clearfix">
+      <h4 class="numeral major"> V </h4>
+      <svg class="chord" id="5"></svg>
+      <h4 class="transposed"> {{newKey[4]}} </h4>
+    </div>
 
-  <div class="chord-card clearfix">
-    <h4 class="numeral minor"> III </h4>
-    <svg class="chord" id="3"></svg>
-    <h4 class="transposed"> {{newKey[2]}} </h4>
-  </div>
+    <div class="chord-card clearfix">
+      <h4 class="numeral minor"> VI </h4>
+      <svg class="chord" id="6"></svg>
+      <h4 class="transposed"> {{newKey[5]}} </h4>
+    </div>
 
-  <div class="chord-card clearfix">
-    <h4 class="numeral major"> IV </h4>
-    <svg class="chord" id="4"></svg>
-    <h4 class="transposed"> {{newKey[3]}} </h4>
-  </div>
-
-  <div class="chord-card clearfix">
-    <h4 class="numeral major"> V </h4>
-    <svg class="chord" id="5"></svg>
-    <h4 class="transposed"> {{newKey[4]}} </h4>
-  </div>
-
-  <div class="chord-card clearfix">
-    <h4 class="numeral minor"> VI </h4>
-    <svg class="chord" id="6"></svg>
-    <h4 class="transposed"> {{newKey[5]}} </h4>
-  </div>
-
-  <div class="chord-card clearfix">
-    <h4 class="numeral seventh"> VII </h4>
-    <svg class="chord" id="7"></svg>
-    <h4 class="transposed"> {{newKey[6]}} </h4>
+    <div class="chord-card clearfix">
+      <h4 class="numeral seventh"> VII </h4>
+      <svg class="chord" id="7"></svg>
+      <h4 class="transposed"> {{newKey[6]}} </h4>
+    </div>
   </div>
 </div>

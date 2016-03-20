@@ -1,4 +1,4 @@
-@import "variables";
+
 
 //thing necessary for bootstrap UI
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
@@ -15,16 +15,6 @@ body {
   font-family: $primary;
   color: $white;
   -webkit-font-smoothing: antialiased;
-  height: 100vh;
-}
-
-.background {
-  background: url("../../images/guitar-1.jpeg"), no-repeat center center, $black;
-  background-blend-mode: soft-light;
-  background-size: cover;
-  position: fixed;
-  height: 100vh;
-  z-index: 1;
 }
 
 .clearfix {
@@ -36,20 +26,17 @@ body {
 }
 
 .row {
-  display: flex;
+  @include display(flex);
 }
-  .selector {
-    flex: 1;
-    // background-color: grey;
-    height: 5rem;
-    margin: 3rem;
+  .selectors {
+    margin-top: 8%;
 
   }
 
 form, label {
   font-family: $league;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2.6rem;
   font-weight: 400;
 }
   .form-group {
@@ -59,6 +46,7 @@ form, label {
     margin: 0 .5em;
   }
 .form-control {
+    font-family: $primary;
     font-size: 2.5rem;
     letter-spacing: .04em;
     background-color: transparent;
@@ -66,8 +54,9 @@ form, label {
     color: $green;
     box-shadow: none;
     -webkit-box-shadow: none;
-    // margin-bottom: .25em;
+    margin-bottom: .25em;
     height: 100%;
+
 
     &:focus {
       border: none;
@@ -87,21 +76,22 @@ form, label {
 .info {
   letter-spacing: .05em;
   width: 90vw;
-  margin: 1em auto .25em auto;
+  margin: 1em auto 0 auto;
   padding: .25em;
+  h1 {
+  font-weight: 300;
+}
 }
 h1 {
   font-size: 4.5rem;
-  line-height: 0.9;
+  line-height: 1.2;
 }
 //
 .chords {
-  // background-color: $black;
-  margin: 2.5rem 0 0 0;
+  margin: 3% 2.5vw;
 }
   .chord-card {
-    flex: 1;
-    // background-color: grey;
+    @include flex(1);
     height: 100%;
     padding: 0 .5rem;
     display: inline;
@@ -128,6 +118,7 @@ h1 {
         width: 90%;
         margin: 0 auto;
       }
+
 
 .major {
   border-bottom: .15em solid $red;

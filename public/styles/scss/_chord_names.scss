@@ -1,1 +1,17 @@
+.background-two {
+  background: url("../../images/guitar-2.jpg") no-repeat center center, #111;
+  background-blend-mode: soft-light;
+  background-size: cover;
+  @include filter(grayscale(100%));
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: 1;
+}
 
+.content {
+  position: relative;
+  z-index: 5;
+  margin-top: 0;
+}
