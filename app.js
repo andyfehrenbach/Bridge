@@ -12,10 +12,10 @@ var password = process.env.dbpass;
 mongoose.set('debug', true);
 //mongoose connect
 //real connection for heroku
-// mongoose.connect('mongodb://' + user + ':' + password + '@ds015899.mlab.com:15899/bridge_app');
+mongoose.connect('mongodb://' + user + ':' + password + '@ds015899.mlab.com:15899/bridge_app');
 
 //local connection
-mongoose.connect('mongodb://localhost/bridge_app');
+// mongoose.connect('mongodb://localhost/bridge_app');
 
 
 app.use(bodyParser.json());
