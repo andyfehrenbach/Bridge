@@ -87,3 +87,13 @@
       color: $green;
     }
 }
+
+.credits {
+  position: absolute;
+  z-index: 100;
+  bottom: -215vh;
+  padding-left: 2em;
+  a{
+    text-decoration: underline;
+  }
+}
