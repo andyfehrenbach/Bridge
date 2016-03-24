@@ -77,7 +77,8 @@ h1 {
   line-height: 1.2; }
 
 .chords {
-  margin: 3% 2.5vw; }
+  margin: 3% 2.5vw;
+  height: 28rem; }
 
 .chord-card {
   -webkit-box-flex: 1;
@@ -88,8 +89,7 @@ h1 {
   -ms-flex: 1;
   flex: 1;
   height: 100%;
-  padding: 0 .5rem;
-  display: inline; }
+  padding: 0 .5rem; }
 
 .chord {
   width: 100%;
@@ -105,8 +105,10 @@ h4 {
 .transposed {
   background: #111;
   color: #14d2a9;
-  background-blend-mode: multiply;
-  padding: .4em .5em; }
+  padding: .4em .5em;
+  position: absolute;
+  bottom: 0;
+  width: 12%; }
 
 .numeral {
   width: 90%;
@@ -138,7 +140,6 @@ header {
   text-transform: uppercase;
   letter-spacing: .05em;
   width: 100vw;
-  background-blend-mode: multiply;
   position: fixed;
   top: 0;
   z-index: 100;

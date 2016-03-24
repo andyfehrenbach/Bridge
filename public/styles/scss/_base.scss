@@ -89,12 +89,12 @@ h1 {
 //
 .chords {
   margin: 3% 2.5vw;
+  height: 28rem;
 }
   .chord-card {
     @include flex(1);
     height: 100%;
     padding: 0 .5rem;
-    display: inline;
   }
     .chord {
       width: 100%;
@@ -111,8 +111,10 @@ h1 {
       .transposed {
         background: $black;
         color: $green;
-        background-blend-mode: multiply;
         padding: .4em .5em;
+        position: absolute;
+        bottom: 0;
+        width: 12%;
       }
       .numeral {
         width: 90%;
