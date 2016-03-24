@@ -95,6 +95,7 @@ h1 {
     @include flex(1);
     height: 100%;
     padding: 0 .5rem;
+    position: relative;
   }
     .chord {
       width: 100%;
@@ -114,7 +115,9 @@ h1 {
         padding: .4em .5em;
         position: absolute;
         bottom: 0;
-        width: 12%;
+        left: 8%;
+        width: 85%;
+
       }
       .numeral {
         width: 90%;
